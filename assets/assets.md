@@ -1,0 +1,6 @@
+https://i.imgur.com/W4aY1t9.png (l'harmonique)
+https://i.imgur.com/2aG5NM1.png (checkbox cochée)
+https://i.imgur.com/IIe527s.png (checkbox décochée)
+https://i.imgur.com/O182Hw9.png (bannière)
+https://i.imgur.com/RqiNP2C.png (logo pénombre)
+https://i.imgur.com/FsnUzgN.png (Potentiel)

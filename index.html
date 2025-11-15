@@ -1,0 +1,130 @@
+<div class="penombre-sheet">
+
+    <!-- Bandeau supérieur -->
+    <header class="header">
+        <img src="https://i.imgur.com/RqiNP2C.png" class="logo" alt="Logo Pénombre">
+        <img src="https://i.imgur.com/O182Hw9.png" class="frise" alt="Frise décorative">
+    </header>
+
+    <div class="columns">
+        <!-- Colonne gauche -->
+        <div class="col-left">
+
+            <!-- Identité -->
+            <section class="section-identite">
+                <h3>Personnage</h3>
+                <label>Nom</label><input type="text" name="attr_nom">
+                <label>Peuple</label><input type="text" name="attr_peuple">
+                <label>Clé</label><input type="text" name="attr_cle">
+                <label>Gamme</label><input type="text" name="attr_gamme">
+                <label>Ton</label><input type="text" name="attr_ton">
+            </section>
+
+            <!-- Harmoniques -->
+            <section class="section-harmoniques">
+                <h3>Harmoniques</h3>
+                <div class="harmoniques-grid">
+                    <div class="harmonique">
+                        <img src="https://i.imgur.com/W4aY1t9.png" alt="harmonique">
+                        <select name="attr_nuit">
+                            <option value="4">D4</option>
+                            <option value="6">D6</option>
+                            <option value="8">D8</option>
+                            <option value="10">D10</option>
+                            <option value="12">D12</option>
+                        </select>
+                        <span class="label">Nuit</span>
+                    </div>
+                    <div class="harmonique">
+                        <img src="https://i.imgur.com/W4aY1t9.png" alt="harmonique">
+                        <select name="attr_ame">
+                            <option value="4">D4</option>
+                            <option value="6">D6</option>
+                            <option value="8">D8</option>
+                            <option value="10">D10</option>
+                            <option value="12">D12</option>
+                        </select>
+                        <span class="label">Âme</span>
+                    </div>
+                    <div class="harmonique">
+                        <img src="https://i.imgur.com/W4aY1t9.png" alt="harmonique">
+                        <select name="attr_nature">
+                            <option value="4">D4</option>
+                            <option value="6">D6</option>
+                            <option value="8">D8</option>
+                            <option value="10">D10</option>
+                            <option value="12">D12</option>
+                        </select>
+                        <span class="label">Nature</span>
+                    </div>
+                    <div class="harmonique">
+                        <img src="https://i.imgur.com/W4aY1t9.png" alt="harmonique">
+                        <select name="attr_esprit">
+                            <option value="4">D4</option>
+                            <option value="6">D6</option>
+                            <option value="8">D8</option>
+                            <option value="10">D10</option>
+                            <option value="12">D12</option>
+                        </select>
+                        <span class="label">Esprit</span>
+                    </div>
+                    <div class="harmonique">
+                        <img src="https://i.imgur.com/W4aY1t9.png" alt="harmonique">
+                        <select name="attr_etincelle">
+                            <option value="4">D4</option>
+                            <option value="6">D6</option>
+                            <option value="8">D8</option>
+                            <option value="10">D10</option>
+                            <option value="12">D12</option>
+                        </select>
+                        <span class="label">Étincelle</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Colonne droite -->
+        <div class="col-right">
+
+            <!-- Pouvoirs -->
+            <section class="section-pouvoirs">
+                <h3>Pouvoirs</h3>
+                <fieldset class="repeating_pouvoirs">
+                    <div class="pouvoir">
+                        <img src="https://i.imgur.com/FsnUzgN.png" class="icon-potentiel">
+                        <input type="number" name="attr_potentiel_pouvoir" value="0" class="potentiel">
+                        <input type="checkbox" class="toggle-description" title="Afficher la description">
+                        <div class="input-wrapper">
+                            <input type="text" name="attr_nom_pouvoir" placeholder="Nom du pouvoir" class="nom-pouvoir">
+                            <textarea name="attr_desc_pouvoir" class="desc-pouvoir"
+                                placeholder="Description du pouvoir..."></textarea>
+                        </div>
+                        <input type="text" name="attr_type_pouvoir" placeholder="Type" class="type-pouvoir">
+                    </div>
+                </fieldset>
+            </section>
+
+            <!-- Atouts -->
+            <section class="section-atouts">
+                <h3>Atouts</h3>
+                <fieldset class="repeating_atouts">
+                    <input type="text" name="attr_nom_atout" placeholder="Nom">
+                    <input type="text" name="attr_valeur_atout" placeholder="Valeur">
+                    <input type="checkbox" class="case" name="attr_case_atout">
+                </fieldset>
+            </section>
+
+            <!-- Maîtrises magiques -->
+            <section class="section-magie">
+                <h3>Maîtrises magiques</h3>
+                <fieldset class="repeating_magie">
+                    <input type="text" name="attr_nom_magie" placeholder="Nom">
+                    <input type="text" name="attr_harmonique_magie" placeholder="Harmonique">
+                    <input type="text" name="attr_prerequis_magie" placeholder="Prérequis">
+                </fieldset>
+            </section>
+
+        </div>
+    </div>
+</div>

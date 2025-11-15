@@ -1,0 +1,142 @@
+.penombre-sheet {
+  background-color: #f8f2ea;
+  color: #2d221b;
+  font-family: "Book Antiqua", serif;
+  border: 2px solid #b89b7a;
+  border-radius: 6px;
+  padding: 10px;
+  min-width: 833px;
+}
+
+/* === Bandeau === */
+.header {
+  text-align: center;
+}
+.header .logo {
+  width: 220px;
+  display: block;
+  margin: 0 auto;
+}
+.header .frise {
+  width: 100%;
+  opacity: 0.9;
+  margin-top: 5px;
+}
+
+/* === Layout en colonnes === */
+.columns {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+.col-left {
+  flex: 0 0 40%;
+}
+.col-right {
+  flex: 1;
+}
+
+/* === Identité === */
+.section-identite {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #bfa285;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.section-identite label {
+  display: block;
+  font-size: 0.8em;
+  margin-top: 2px;
+}
+.section-identite input {
+  width: 100%;
+  margin-bottom: 3px;
+}
+
+/* === Harmoniques === */
+.section-harmoniques {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #bfa285;
+  padding: 5px;
+}
+.harmoniques-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  justify-items: center;
+}
+.harmonique {
+  position: relative;
+  width: 100px;
+}
+.harmonique img {
+  width: 100px;
+}
+.harmonique select {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  width: 30%;
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  font-size: 1.1em;
+  text-align: center;
+}
+.harmonique .label {
+  display: block;
+  font-size: 0.8em;
+}
+
+/* === Pouvoirs === */
+.section-pouvoirs {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #bfa285;
+  margin-bottom: 10px;
+  padding: 6px;
+}
+.icon-potentiel {
+  width: 40px;
+}
+.pouvoir {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.nom-pouvoir,
+.type-pouvoir {
+  width: 160px;
+}
+.desc-pouvoir {
+  display: none;
+  width: 300px;
+  height: 80px;
+}
+.toggle-description:checked ~ .input-wrapper .nom-pouvoir {
+  display: none;
+}
+.toggle-description:checked ~ .input-wrapper .desc-pouvoir {
+  display: block;
+}
+
+/* === Atouts === */
+.section-atouts,
+.section-magie {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #bfa285;
+  margin-bottom: 10px;
+  padding: 6px;
+}
+.case {
+  width: 32px;
+  height: 32px;
+  background-image: url("https://i.imgur.com/IIe527s.png");
+  background-size: cover;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+}
+.case:checked {
+  background-image: url("https://i.imgur.com/2aG5NM1.png");
+}
