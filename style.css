@@ -53,40 +53,74 @@
   margin-bottom: 3px;
 }
 
-/* === Harmoniques === */
 .section-harmoniques {
   text-align: center;
   background: rgba(255, 255, 255, 0.8);
   border: 1px solid #bfa285;
-  padding: 5px;
+  padding: 6px;
 }
+
+/* grille générale */
 .harmoniques-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
   justify-items: center;
 }
+
+.section-harmoniques {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #bfa285;
+  padding: 6px;
+}
+
+/* Grille principale */
+.harmoniques-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  justify-items: center;
+}
+
+/* Chaque bloc harmonique + label */
+.harmonique-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Visuel harmonique */
 .harmonique {
-  position: relative;
   width: 100px;
+  height: 100px;
+  background-image: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/case_de_penombre.webp?raw=true");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.harmonique img {
-  width: 100px;
-}
+
+/* Sélecteur centré */
 .harmonique select {
-  position: absolute;
-  top: 35%;
-  left: 35%;
-  width: 30%;
   border: none;
   background: transparent;
   font-weight: bold;
   font-size: 1.1em;
   text-align: center;
+  appearance: none;
+  cursor: pointer;
 }
-.harmonique .label {
-  display: block;
-  font-size: 0.8em;
+
+/* Label en dessous */
+.harmonique-wrap .label {
+  font-size: 0.85em;
+  color: #2d221b;
+  font-weight: 600;
+  line-height: 1;
 }
 
 /* === Pouvoirs === */
