@@ -1,8 +1,44 @@
+/* === @Fontface === */
+@import url("https://fonts.googleapis.com/css2?family=Fasthand&family=Pirata+One&display=swap");
+
+@font-face {
+  font-family: "Freely22";
+  src: url("https://github.com/okadus/roll20-penombre/blob/main/assets/fonts/P22Freely.otf")
+    format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cattedrale";
+  src: url("https://github.com/okadus/roll20-penombre/blob/main/assets/fonts/cattedrale-regular.otf")
+    format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* === Variables === */
+:root {
+  --penombre-brown: #722f16;
+  --penombre-red: #b85563;
+  --penombre-white: rgba(255, 255, 255, 0.8);
+  --penombre-text: #2d221b;
+  --penombre-light: #fcf1de;
+  --penombre-dark: #f9e8ce;
+  --penombre-gradient-dark-to-light: linear-gradient(
+    to right,
+    #f9e8ce 30%,
+    #f1eae0 90%
+  );
+  --penombre-green: #5e7470;
+  --penombre-font-freely: "P22Freely", "Fasthand", serif;
+  --penombre-font-cattedrale: "Cattedrale", "Pirata One", serif;
+}
+
 .penombre-sheet {
-  background-color: #f8f2ea;
-  color: #2d221b;
-  font-family: "Book Antiqua", serif;
-  border: 2px solid #b89b7a;
+  background-color: var(--penombre-light);
+  color: var(--penombre-text);
+  border: 2px solid var(--penombre-brown);
   border-radius: 6px;
   padding: 10px;
   min-width: 833px;
@@ -10,17 +46,27 @@
 
 /* === Bandeau === */
 .header {
-  text-align: center;
+  background: linear-gradient(
+      to left,
+      #f8f2ea 30%,
+      rgba(248, 242, 234, 0.1) 70%
+    ),
+    /* fondu beige → transparent */ url("https://i.imgur.com/O182Hw9.png") left
+      center / 70% 100% no-repeat;
+  border: 2px solid var(--penombre-brown);
+  position: relative;
+  min-height: 100px;
+  margin-bottom: 10px;
 }
+
 .header .logo {
-  width: 220px;
-  display: block;
-  margin: 0 auto;
-}
-.header .frise {
-  width: 100%;
-  opacity: 0.9;
-  margin-top: 5px;
+  width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
 }
 
 /* === Layout en colonnes === */
@@ -38,26 +84,98 @@
 
 /* === Identité === */
 .section-identite {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid #bfa285;
-  padding: 5px;
+  background: var(--penombre-light);
+  border: 1px solid var(--penombre-brown);
+  padding: 8px;
   margin-bottom: 10px;
 }
-.section-identite label {
-  display: block;
-  font-size: 0.8em;
-  margin-top: 2px;
-}
-.section-identite input {
-  width: 100%;
-  margin-bottom: 3px;
+
+/* Conteneur horizontal : colonne verticale + zone d’inputs */
+.identite-container,
+.harmoniques-container {
+  display: flex;
+  align-items: stretch;
 }
 
+/* --- Titre vertical --- */
+.titre-vertical {
+  padding: 10px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+}
+
+.identite-titre {
+  background: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/marron.webp?raw=true")
+    center 60% / 50% no-repeat;
+  color: var(--penombre-brown);
+}
+
+h3 {
+  font-size: 1.8em;
+}
+
+h3.titre-vertical span {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg) translateX(16px);
+  font-family: var(--penombre-font-cattedrale);
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* --- Zone des champs --- */
+.identite-champs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 250px;
+}
+.identite-champ {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.identite-champ label {
+  font-weight: bold;
+  color: #6a3d1e;
+  display: inline-block;
+  margin: 0;
+  width: 40px;
+  font-size: 1.4rem;
+}
+
+.identite-champ input {
+  border: none;
+  border-bottom: 1px dotted #9d8a74;
+  background: transparent;
+  margin-bottom: 3px;
+  width: calc(100% - 10px);
+  display: inline-block;
+  font-family: var(--penombre-font-freely);
+  font-size: 1.5em;
+  padding-bottom: 0;
+}
+
+/* === Harmoniques === */
 .section-harmoniques {
   text-align: center;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid #bfa285;
+  border: 1px solid var(--penombre-brown);
   padding: 6px;
+  background: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/fond-coupe.webp?raw=true")
+    no-repeat 90% center;
+  background-size: 70%;
+  background-color: #fdf2e0;
+}
+
+.harmoniques-titre {
+  background: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/grise.webp?raw=true")
+    center 60% / 50% no-repeat;
+  color: var(--penombre-green);
 }
 
 /* grille générale */
@@ -66,13 +184,8 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
   justify-items: center;
-}
-
-.section-harmoniques {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid #bfa285;
-  padding: 6px;
+  width: 60%;
+  margin-left: 10%;
 }
 
 /* Grille principale */
@@ -89,6 +202,18 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
+}
+
+.esprit-wrap {
+  transform: translateX(30%);
+}
+
+.nature-wrap {
+  transform: translateX(-35%);
+}
+
+.etincelle-wrap {
+  transform: translateX(50%);
 }
 
 /* Visuel harmonique */
@@ -109,18 +234,49 @@
   border: none;
   background: transparent;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 2rem;
   text-align: center;
   appearance: none;
   cursor: pointer;
+  font-family: var(--penombre-font-freely);
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  margin-left: 10px;
 }
 
 /* Label en dessous */
-.harmonique-wrap .label {
-  font-size: 0.85em;
-  color: #2d221b;
+.harmonique-wrap .label-btn {
+  font-family: var(--penombre-font-cattedrale);
   font-weight: 600;
   line-height: 1;
+}
+
+button.label-btn {
+  background: var(--penombre-gradient-dark-to-light);
+  border: 0;
+  color: var(--penombre-green);
+  padding: 0.8rem 0.5rem !important;
+  font-size: 2em !important;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--penombre-brown);
+    color: var(--penombre-light);
+  }
+}
+
+button[type="roll"].label-btn::before {
+  content: none !important;
+}
+
+.sub-label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--penombre-red);
+  font-weight: bold;
+  margin-top: 2px;
 }
 
 /* === Pouvoirs === */

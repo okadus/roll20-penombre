@@ -1,10 +1,6 @@
 <div class="penombre-sheet">
 
-    <!-- Bandeau supérieur -->
-    <header class="header">
-        <img src="https://i.imgur.com/RqiNP2C.png" class="logo" alt="Logo Pénombre">
-        <img src="https://i.imgur.com/O182Hw9.png" class="frise" alt="Frise décorative">
-    </header>
+
 
     <div class="columns">
         <!-- Colonne gauche -->
@@ -12,82 +8,102 @@
 
             <!-- Identité -->
             <section class="section-identite">
-                <h3>Personnage</h3>
-                <label>Nom</label><input type="text" name="attr_nom">
-                <label>Peuple</label><input type="text" name="attr_peuple">
-                <label>Clé</label><input type="text" name="attr_cle">
-                <label>Gamme</label><input type="text" name="attr_gamme">
-                <label>Ton</label><input type="text" name="attr_ton">
+                <div class="identite-container">
+                    <h3 class="titre-vertical identite-titre">
+                        <span>Personnage</span>
+                    </h3>
+
+                    <div class="identite-champs">
+                        <div class="identite-champ"><label>Nom</label><input type="text" name="attr_char_name"></div>
+                        <div class="identite-champ"><label>Peuple</label><input type="text" name="attr_peuple"></div>
+                        <!-- <div><label>Clé</label><input type="text" name="attr_cle"></div>
+                        <div><label>Gamme</label><input type="text" name="attr_gamme"></div>
+                        <div><label>Ton</label><input type="text" name="attr_ton"></div> -->
+                    </div>
+                </div>
             </section>
+
 
             <!-- Harmoniques -->
             <section class="section-harmoniques">
-                <h3>Harmoniques</h3>
+                <div class="harmoniques-container">
+                    <h3 class="titre-vertical harmoniques-titre">
+                        <span>Harmoniques</span>
+                    </h3>
 
-                <div class="harmoniques-grid">
-                    <div class="harmonique-wrap">
-                        <div class="harmonique">
-                            <select name="attr_nuit">
-                                <option value="4">D4</option>
-                                <option value="6">D6</option>
-                                <option value="8">D8</option>
-                                <option value="10">D10</option>
-                                <option value="12">D12</option>
-                            </select>
-                        </div>
-                        <span class="label">Nuit</span>
-                    </div>
+                    <div class="harmoniques-grid">
+                        <div class="harmonique-wrap">
+                            <div class="harmonique">
+                                <select name="attr_nuit">
+                                    <option value="4">D4</option>
+                                    <option value="6">D6</option>
+                                    <option value="8">D8</option>
+                                    <option value="10">D10</option>
+                                    <option value="12">D12</option>
+                                </select>
+                            </div>
+                            <button type="roll" value="" class="label-btn">Nuit</button>
+                            <span class="sub-label">Action scélérate</span>
 
-                    <div class="harmonique-wrap">
-                        <div class="harmonique">
-                            <select name="attr_ame">
-                                <option value="4">D4</option>
-                                <option value="6">D6</option>
-                                <option value="8">D8</option>
-                                <option value="10">D10</option>
-                                <option value="12">D12</option>
-                            </select>
                         </div>
-                        <span class="label">Âme</span>
-                    </div>
 
-                    <div class="harmonique-wrap">
-                        <div class="harmonique">
-                            <select name="attr_nature">
-                                <option value="4">D4</option>
-                                <option value="6">D6</option>
-                                <option value="8">D8</option>
-                                <option value="10">D10</option>
-                                <option value="12">D12</option>
-                            </select>
-                        </div>
-                        <span class="label">Nature</span>
-                    </div>
+                        <div class="harmonique-wrap">
+                            <div class="harmonique">
+                                <select name="attr_ame">
+                                    <option value="4">D4</option>
+                                    <option value="6">D6</option>
+                                    <option value="8">D8</option>
+                                    <option value="10">D10</option>
+                                    <option value="12">D12</option>
+                                </select>
+                            </div>
+                            <button type="roll" value="" class="label-btn">Âme</button>
+                            <span class="sub-label">Action sociale</span>
 
-                    <div class="harmonique-wrap">
-                        <div class="harmonique">
-                            <select name="attr_esprit">
-                                <option value="4">D4</option>
-                                <option value="6">D6</option>
-                                <option value="8">D8</option>
-                                <option value="10">D10</option>
-                                <option value="12">D12</option>
-                            </select>
                         </div>
-                        <span class="label">Esprit</span>
-                    </div>
 
-                    <div class="harmonique-wrap">
-                        <div class="harmonique">
-                            <select name="attr_etincelle">
-                                <option value="4">D4</option>
-                                <option value="6">D6</option>
-                                <option value="8">D8</option>
-                                <option value="10">D10</option>
-                                <option value="12">D12</option>
-                            </select>
+                        <div class="harmonique-wrap nature-wrap">
+                            <div class="harmonique">
+                                <select name="attr_nature">
+                                    <option value="4">D4</option>
+                                    <option value="6">D6</option>
+                                    <option value="8">D8</option>
+                                    <option value="10">D10</option>
+                                    <option value="12">D12</option>
+                                </select>
+                            </div>
+                            <button type="roll" value="" class="label-btn">Nature</button>
+                            <span class="sub-label">Action physique</span>
+
                         </div>
-                        <span class="label">Étincelle</span>
+
+                        <div class="harmonique-wrap esprit-wrap">
+                            <div class="harmonique">
+                                <select name="attr_esprit">
+                                    <option value="4">D4</option>
+                                    <option value="6">D6</option>
+                                    <option value="8">D8</option>
+                                    <option value="10">D10</option>
+                                    <option value="12">D12</option>
+                                </select>
+                            </div>
+                            <button type="roll" value="" class="label-btn">Esprit</button>
+                            <span class="sub-label">Action mentale</span>
+                        </div>
+
+                        <div class="harmonique-wrap etincelle-wrap">
+                            <div class="harmonique">
+                                <select name="attr_etincelle">
+                                    <option value="4">D4</option>
+                                    <option value="6">D6</option>
+                                    <option value="8">D8</option>
+                                    <option value="10">D10</option>
+                                    <option value="12">D12</option>
+                                </select>
+                            </div>
+                            <button type="roll" value="" class="label-btn">Étincelle</button>
+                            <span class="sub-label">Action perceptive</span>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -98,6 +114,11 @@
 
         <!-- Colonne droite -->
         <div class="col-right">
+
+            <!-- Bandeau supérieur -->
+            <header class="header">
+                <img src="https://i.imgur.com/RqiNP2C.png" class="logo" alt="Logo Pénombre">
+            </header>
 
             <!-- Pouvoirs -->
             <section class="section-pouvoirs">
