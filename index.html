@@ -107,9 +107,98 @@
                     </div>
                 </div>
             </section>
+            <!-- ================= Conscience ================= -->
+            <section class="section-conscience">
+                <div class="conscience-container">
+                    <h3 class="titre-vertical conscience-titre">
+                        <span>Conscience</span>
+                    </h3>
+                    <div class="conscience-wrapper">
+                        <div class="conscience-header">
+                            <h4>Max</h4>
+                            <input type="number" name="attr_conscience_max" value="7" min="0" max="15">
+                        </div>
+
+                        <!-- input caché contrôlé automatiquement par le sheet-worker -->
+                        <input type="hidden" name="attr_cmax" value="0">
 
 
+                        <!-- Radios cachés : 1 seul attribut attr_cmax (1..10) -->
+                        <div class="cmax-radios">
+                            <input type="hidden" name="attr_show_token1" value="on">
+                            <input type="hidden" name="attr_show_token2" value="on">
+                            <input type="hidden" name="attr_show_token3" value="on">
+                            <input type="hidden" name="attr_show_token4" value="on">
+                            <input type="hidden" name="attr_show_token5" value="on">
+                            <input type="hidden" name="attr_show_token6" value="on">
+                            <input type="hidden" name="attr_show_token7" value="on">
+                            <input type="hidden" name="attr_show_token8" value="0">
+                            <input type="hidden" name="attr_show_token9" value="0">
+                            <input type="hidden" name="attr_show_token10" value="0">
+                        </div>
 
+                        <!-- 15 jetons -->
+                        <div class="tokens">
+                            <div class="token"><input type="hidden" name="attr_token1" value="0"><button type="action"
+                                    name="act_token1" class="token-btn"></button></div>
+                            <div class="token"><input type="hidden" name="attr_token2" value="0"><button type="action"
+                                    name="act_token2" class="token-btn"></button></div>
+                            <div class="token"><input type="hidden" name="attr_token3" value="0"><button type="action"
+                                    name="act_token3" class="token-btn"></button></div>
+                            <div class="token"><input type="hidden" name="attr_token4" value="0"><button type="action"
+                                    name="act_token4" class="token-btn"></button></div>
+                            <div class="token"><input type="hidden" name="attr_token5" value="0"><button type="action"
+                                    name="act_token5" class="token-btn"></button></div>
+                            <div class="token"><input type="hidden" name="attr_token6" value="0"><button type="action"
+                                    name="act_token6" class="token-btn"></button></div>
+                            <div class="token"><input type="hidden" name="attr_token7" value="0"><button type="action"
+                                    name="act_token7" class="token-btn"></button></div>
+                            <div class="token"><input type="hidden" name="attr_token8" value="0"><button type="action"
+                                    name="act_token8" class="token-btn"></button></div>
+                            <div class="token"><input type="hidden" name="attr_token9" value="0"><button type="action"
+                                    name="act_token9" class="token-btn"></button></div>
+                            <div class="token"><input type="hidden" name="attr_token10" value="0"><button type="action"
+                                    name="act_token10" class="token-btn"></button></div>
+                            <div class="token"><input type="hidden" name="attr_token11" value="0"><button type="action"
+                                    name="act_token11" class="token-btn"></button></div>
+                            <div class="token"><input type="hidden" name="attr_token12" value="0"><button type="action"
+                                    name="act_token12" class="token-btn"></button></div>
+                            <div class="token"><input type="hidden" name="attr_token13" value="0"><button type="action"
+                                    name="act_token13" class="token-btn"></button></div>
+                            <div class="token"><input type="hidden" name="attr_token14" value="0"><button type="action"
+                                    name="act_token14" class="token-btn"></button></div>
+                            <div class="token"><input type="hidden" name="attr_token15" value="0"><button type="action"
+                                    name="act_token15" class="token-btn"></button></div>
+                        </div>
+
+                        <!-- Complications -->
+                        <div class="complications">
+                            <h4>Complications</h4>
+                            <div class="comp-row">
+                                <input type="text" name="attr_complication1">
+                                <input type="checkbox" name="attr_comp1a"><input type="checkbox"
+                                    name="attr_comp1b"><input type="checkbox" name="attr_comp1c">
+                            </div>
+                            <div class="comp-row">
+                                <input type="text" name="attr_complication2">
+                                <input type="checkbox" name="attr_comp2a"><input type="checkbox"
+                                    name="attr_comp2b"><input type="checkbox" name="attr_comp2c">
+                            </div>
+                            <div class="comp-row">
+                                <input type="text" name="attr_complication3">
+                                <input type="checkbox" name="attr_comp3a"><input type="checkbox"
+                                    name="attr_comp3b"><input type="checkbox" name="attr_comp3c">
+                            </div>
+                            <div class="comp-row">
+                                <input type="text" name="attr_complication4">
+                                <input type="checkbox" name="attr_comp4a"><input type="checkbox"
+                                    name="attr_comp4b"><input type="checkbox" name="attr_comp4c">
+                            </div>
+                            <p class="comp-help">(pensez à en créer pour préserver vos jetons)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <!-- Colonne droite -->
@@ -161,3 +250,28 @@
         </div>
     </div>
 </div>
+<script type="text/worker">
+  /* Synchronise la valeur de Conscience Max -> cmax */
+  on("change:conscience_max sheet:opened", function() {
+    getAttrs(["conscience_max"], function(v) {
+      let cmax = parseInt(v.conscience_max, 10) || 0;
+      cmax = Math.max(0, Math.min(15, cmax));
+      setAttrs({ cmax: String(cmax) }, { silent: true });
+    });
+  });
+
+  /* Cycle des 15 jetons (0→1→2→0) */
+  const ids = Array.from({ length: 15 }, (_, i) => String(i + 1));
+  ids.forEach(i => {
+    on(`clicked:token${i}`, function() {
+      getAttrs([`token${i}`], function(v) {
+        let cur = parseInt(v[`token${i}`], 10);
+        if (isNaN(cur)) cur = 0;
+        const next = (cur + 1) % 3;
+        const upd = {};
+        upd[`token${i}`] = String(next);
+        setAttrs(upd);
+      });
+    });
+  });
+</script>

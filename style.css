@@ -21,7 +21,8 @@
 :root {
   --penombre-brown: #722f16;
   --penombre-red: #b85563;
-  --penombre-white: rgba(255, 255, 255, 0.8);
+  --penombre-gold: #8e7d36;
+  --penombre-white: #fef4e8;
   --penombre-text: #2d221b;
   --penombre-light: #fcf1de;
   --penombre-dark: #f9e8ce;
@@ -36,11 +37,11 @@
 }
 
 .penombre-sheet {
-  background-color: var(--penombre-light);
+  background-color: var(--penombre-brown);
   color: var(--penombre-text);
   border: 2px solid var(--penombre-brown);
   border-radius: 6px;
-  padding: 10px;
+  padding: 0 10px 0;
   min-width: 833px;
 }
 
@@ -51,7 +52,7 @@
       #f8f2ea 30%,
       rgba(248, 242, 234, 0.1) 70%
     ),
-    /* fondu beige → transparent */ url("https://i.imgur.com/O182Hw9.png") left
+    /* fondu beige → transparent */ url("https://i.imgur.com/0muP6u9.png") left
       center / 70% 100% no-repeat;
   border: 2px solid var(--penombre-brown);
   position: relative;
@@ -84,15 +85,15 @@
 
 /* === Identité === */
 .section-identite {
-  background: var(--penombre-light);
-  border: 1px solid var(--penombre-brown);
+  background: var(--penombre-white);
   padding: 8px;
   margin-bottom: 10px;
 }
 
 /* Conteneur horizontal : colonne verticale + zone d’inputs */
 .identite-container,
-.harmoniques-container {
+.harmoniques-container,
+.conscience-container {
   display: flex;
   align-items: stretch;
 }
@@ -164,18 +165,22 @@ h3.titre-vertical span {
 /* === Harmoniques === */
 .section-harmoniques {
   text-align: center;
-  border: 1px solid var(--penombre-brown);
   padding: 6px;
   background: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/fond-coupe.webp?raw=true")
     no-repeat 90% center;
   background-size: 70%;
-  background-color: #fdf2e0;
+  background-color: var(--penombre-white);
+  margin-bottom: 10px;
 }
 
 .harmoniques-titre {
   background: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/grise.webp?raw=true")
     center 60% / 50% no-repeat;
   color: var(--penombre-green);
+}
+
+h3.harmoniques-titre span {
+  margin-top: 45px;
 }
 
 /* grille générale */
@@ -279,10 +284,168 @@ button[type="roll"].label-btn::before {
   margin-top: 2px;
 }
 
+/* ===== Conscience ===== */
+.section-conscience {
+  background: var(--penombre-white);
+  padding: 8px;
+}
+
+.conscience-titre {
+  background: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/doree.webp?raw=true")
+    center 60% / 50% no-repeat;
+  color: var(--penombre-gold);
+}
+
+h3.conscience-titre span {
+  margin-top: 15px;
+}
+
+.conscience-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.conscience-header h4 {
+  font-family: var(--penombre-font-cattedrale);
+  font-size: 2rem;
+  color: var(--penombre-gold);
+  margin-right: 10px;
+}
+.conscience-header input[type="number"] {
+  width: 56px;
+  text-align: center;
+}
+
+/* Jetons */
+.tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin: 6px 0 10px;
+}
+
+.token {
+  width: 46px;
+  height: 46px;
+  position: relative;
+}
+.token-btn {
+  width: 46px;
+  height: 46px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: none;
+}
+
+.complications h4 {
+  margin: 6px 0;
+  font-size: 2.1rem;
+  font-family: var(--penombre-font-cattedrale);
+  color: var(--penombre-green);
+  text-align: right;
+}
+
+/* États visuels */
+input[name^="attr_token"][value="0"] + .token-btn {
+  background-image: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/jeton_face_inactive.webp?raw=true");
+}
+input[name^="attr_token"][value="1"] + .token-btn {
+  background-image: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/cercle.webp?raw=true");
+}
+input[name^="attr_token"][value="2"] + .token-btn {
+  background-image: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/jeton_face_active.webp?raw=true");
+}
+
+/* === Masquage au-delà du cmax === */
+input[name="attr_cmax"][value="0"] ~ .tokens .token:nth-child(n + 1) {
+  display: none;
+}
+input[name="attr_cmax"][value="1"] ~ .tokens .token:nth-child(n + 2) {
+  display: none;
+}
+input[name="attr_cmax"][value="2"] ~ .tokens .token:nth-child(n + 3) {
+  display: none;
+}
+input[name="attr_cmax"][value="3"] ~ .tokens .token:nth-child(n + 4) {
+  display: none;
+}
+input[name="attr_cmax"][value="4"] ~ .tokens .token:nth-child(n + 5) {
+  display: none;
+}
+input[name="attr_cmax"][value="5"] ~ .tokens .token:nth-child(n + 6) {
+  display: none;
+}
+input[name="attr_cmax"][value="6"] ~ .tokens .token:nth-child(n + 7) {
+  display: none;
+}
+input[name="attr_cmax"][value="7"] ~ .tokens .token:nth-child(n + 8) {
+  display: none;
+}
+input[name="attr_cmax"][value="8"] ~ .tokens .token:nth-child(n + 9) {
+  display: none;
+}
+input[name="attr_cmax"][value="9"] ~ .tokens .token:nth-child(n + 10) {
+  display: none;
+}
+input[name="attr_cmax"][value="10"] ~ .tokens .token:nth-child(n + 11) {
+  display: none;
+}
+input[name="attr_cmax"][value="11"] ~ .tokens .token:nth-child(n + 12) {
+  display: none;
+}
+input[name="attr_cmax"][value="12"] ~ .tokens .token:nth-child(n + 13) {
+  display: none;
+}
+input[name="attr_cmax"][value="13"] ~ .tokens .token:nth-child(n + 14) {
+  display: none;
+}
+input[name="attr_cmax"][value="14"] ~ .tokens .token:nth-child(n + 15) {
+  display: none;
+}
+input[name="attr_cmax"][value="15"] ~ .tokens .token:nth-child(n + 16) {
+  display: none;
+}
+
+/* Complications */
+.complications h4 {
+  margin: 6px 0;
+}
+.comp-row {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 24px);
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.comp-row input[type="text"] {
+  height: 30px;
+  border: 1px solid #8e6245;
+  background: #f3f0ed;
+  padding: 0 8px;
+}
+.comp-row input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--penombre-brown);
+  cursor: pointer;
+}
+
+.comp-help {
+  font-style: italic;
+  opacity: 0.8;
+  margin: 4px 0 0;
+}
+
 /* === Pouvoirs === */
 .section-pouvoirs {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid #bfa285;
+  background: var(--penombre-white);
   margin-bottom: 10px;
   padding: 6px;
 }
@@ -313,11 +476,11 @@ button[type="roll"].label-btn::before {
 /* === Atouts === */
 .section-atouts,
 .section-magie {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid #bfa285;
+  background: var(--penombre-white);
   margin-bottom: 10px;
   padding: 6px;
 }
+
 .case {
   width: 32px;
   height: 32px;
