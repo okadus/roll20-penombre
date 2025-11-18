@@ -286,7 +286,7 @@
             <!-- ================= Maîtrises magiques ================== -->
 
             <section class="maitrise-magie">
-                <h2>Pouvoirs</h2>
+                <h2>Maîtrises magiques</h2>
 
                 <div class="capacites-flex">
                     <!-- Colonne gauche : Potentiel -->
@@ -304,7 +304,8 @@
                         <fieldset class="repeating_magies">
                             <div class="magie-row">
                                 <!-- <input type="text" name="attr_nom_magie" placeholder="Nom de la magie"> -->
-                                <input type="text" name="attr_magie" placeholder="Magie">
+                                <textarea name="attr_magie" placeholder="Magie & Prérequis &#8595;"></textarea>
+
                                 <select name="attr_magie_harmonique">
                                     <option value="@{ame}">Âme</option>
                                     <option value="@{esprit}">Esprit</option>
@@ -312,11 +313,11 @@
                                     <option value="@{nature}">Nature</option>
                                     <option value="@{nuit}">Nuit</option>
                                 </select>
-                                <textarea name="attr_magie_prerequis" placeholder="prérequis &#x21B5;"></textarea>
                                 <div class="magie-lvl-img" aria-hidden="true">
                                     <input type="number" name="attr_magie_niveau" class="magie-lvl-input" value="0"
                                         min="0" max="5">
                                 </div>
+
 
 
                             </div>
@@ -324,6 +325,18 @@
                     </div>
                 </div>
             </section>
+
+            <!-- ================= Notes ================== -->
+            <section class="notes-section">
+                <h2>Notes</h2>
+                <div class="notes-wrap">
+                    <textarea name="attr_notes" class="notes-textarea" placeholder="Notes diverses..."></textarea>
+
+                </div>
+            </section>
+
+
+
 
         </div>
     </div>

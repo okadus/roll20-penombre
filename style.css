@@ -446,14 +446,17 @@ input[name="attr_cmax"][value="15"] ~ .tokens .token:nth-child(n + 16) {
 /* ====== Section Pouvoirs ====== */
 .pouvoirs,
 .atouts,
-.maitrise-magie {
+.maitrise-magie,
+.notes-section {
   background: var(--penombre-white);
   padding: 10px;
   margin-bottom: 10px;
 }
 
 .pouvoirs h2,
-.atouts h2 {
+.atouts h2,
+.maitrise-magie h2,
+.notes-section h2 {
   font-family: var(--penombre-font-cattedrale);
   font-size: 2.8rem;
   color: var(--penombre-text);
@@ -672,6 +675,8 @@ input[type="number"].potentiel-input {
   /* flex-wrap: wrap; */
   gap: 8px;
   margin: 4px 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .magie-row textarea {
@@ -688,12 +693,12 @@ input[type="number"].potentiel-input {
   overflow: hidden;
   line-height: 26px;
   transition: height 0.7s ease, border 0.7s ease;
-  width: 120px;
+  min-width: 120px;
 
   &:focus {
     outline: none;
     border: 1px dotted var(--penombre-brown);
-    height: 140px;
+    height: 100px;
   }
 }
 
@@ -710,43 +715,66 @@ input[type="number"].potentiel-input {
   font-family: var(--penombre-font-freely);
 }
 
-.potentiel-img {
-  height: 20px;
-  width: 20px;
-  background: url("https://i.imgur.com/FsnUzgN.png") center/contain no-repeat;
+.magie-lvl-img {
+  position: relative; /* nécessaire pour positionner l'input à l'intérieur */
+  width: 40px;
+  height: 40px;
+  background: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/magie_level.webp")
+    center/contain no-repeat;
 }
 
-.magie-row input[type="number"] {
-  height: 32px;
+/* Positionner l'input au centre de l'image */
+.magie-lvl-img input[type="number"] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 30px !important;
+  height: 30px;
   border: none;
-  border-bottom: 1px dotted var(--penombre-brown);
+  background: transparent;
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--penombre-text);
+  font-family: var(--penombre-font-freely);
+
+  /* supprime les flèches */
   appearance: none;
   -moz-appearance: textfield;
-  background: transparent;
-  padding: 0 8px;
-  font-size: 1.5rem;
-  font-family: var(--penombre-font-freely);
-  width: 20px;
 }
 
-.magie-row input[type="number"].magie-level-input::-webkit-inner-spin-button,
-input[type="number"].magie-level-input::-webkit-outer-spin-button {
+.magie-lvl-img input[type="number"]::-webkit-inner-spin-button,
+.magie-lvl-img input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-.magie-row input[type="text"] {
-  height: 32px;
-  border: none;
-  border-bottom: 1px dotted var(--penombre-brown);
-  background: transparent;
-  padding: 0 8px;
-  width: 110px;
-  font-family: var(--penombre-font-freely);
-  font-size: 1.5rem;
 }
 
 .magie-row button.btn-roll {
   margin-top: 5px;
   height: 100%;
+}
+
+/* === Notes === */
+
+.notes-wrap {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto 10px;
+}
+
+textarea.notes-textarea {
+  height: 100px;
+  border: 1px dotted var(--penombre-brown);
+  background: transparent;
+  padding: 8px;
+  font-size: 1.5rem;
+  resize: vertical;
+  transition: height 0.7s ease;
+
+  &:focus {
+    outline: none;
+    height: 200px;
+  }
 }
