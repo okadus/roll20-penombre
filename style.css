@@ -52,9 +52,9 @@
       #f8f2ea 30%,
       rgba(248, 242, 234, 0.1) 70%
     ),
-    /* fondu beige → transparent */ url("https://i.imgur.com/0muP6u9.png") left
-      center / 70% 100% no-repeat;
-  border: 2px solid var(--penombre-brown);
+    /* fondu beige → transparent */
+      url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/banner.png?raw=true")
+      left center / 70% 100% no-repeat;
   position: relative;
   min-height: 100px;
   margin-bottom: 10px;
@@ -443,42 +443,209 @@ input[name="attr_cmax"][value="15"] ~ .tokens .token:nth-child(n + 16) {
   margin: 4px 0 0;
 }
 
-/* === Pouvoirs === */
-.section-pouvoirs {
+/* ====== Section Pouvoirs ====== */
+.pouvoirs,
+.atouts,
+.maitrise-magie {
   background: var(--penombre-white);
+  padding: 10px;
   margin-bottom: 10px;
-  padding: 6px;
 }
-.icon-potentiel {
-  width: 40px;
+
+.pouvoirs h2,
+.atouts h2 {
+  font-family: var(--penombre-font-cattedrale);
+  font-size: 2.8rem;
+  color: var(--penombre-text);
+  text-align: center;
 }
-.pouvoir {
+
+/* Layout principal : flex */
+.capacites-flex {
   display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* ---- Colonne gauche : Potentiel ---- */
+.col-potentiel {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 5px;
+  width: 15%;
 }
-.nom-pouvoir,
-.type-pouvoir {
-  width: 160px;
+
+.potentiel-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
-.desc-pouvoir {
-  display: none;
-  width: 300px;
+
+.potentiel-img {
+  width: 80px;
   height: 80px;
+  background: url("https://i.imgur.com/FsnUzgN.png") center/contain no-repeat;
 }
-.toggle-description:checked ~ .input-wrapper .nom-pouvoir {
+
+input[type="number"].potentiel-input::-webkit-inner-spin-button,
+input[type="number"].potentiel-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"].potentiel-input {
+  position: absolute;
+  appearance: none;
+  -moz-appearance: textfield;
+  inset: 0;
+  margin: 2.8rem auto;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  color: var(--penombre-text);
+  font-family: var(--penombre-font-freely);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.potentiel-caption {
+  font-weight: 700;
+  color: var(--penombre-brown);
+  font-family: var(--penombre-font-cattedrale);
+  font-size: 2rem;
+  margin: 0 0 0 1rem;
+  transform: translateY(-10px);
+}
+
+/* ---- Colonne droite : Pouvoirs ---- */
+.col-pouvoirs {
+  flex: 1;
+}
+
+.pouvoirs-head {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  color: #4a372d;
+  margin-bottom: 6px;
+  padding-right: 6px;
+}
+
+.pouvoir-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.pouvoir-row input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--penombre-brown);
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.pouvoir-row input[type="text"] {
+  height: 32px;
+  border: none;
+  border-bottom: 1px dotted var(--penombre-brown);
+  background: transparent;
+  padding: 0 8px;
+  width: 89px;
+  font-family: var(--penombre-font-freely);
+  font-size: 1.5rem;
   display: none;
 }
-.toggle-description:checked ~ .input-wrapper .desc-pouvoir {
-  display: block;
+
+.pouvoir-row textarea {
+  flex: 2;
+  height: 26px;
+  margin-top: 5px;
+  border: none;
+  border-bottom: 1px dotted var(--penombre-brown);
+  background: transparent;
+  padding: 0 8px;
+  font-family: var(--penombre-font-freely);
+  font-size: 1.5rem;
+  resize: none;
+  overflow: hidden;
+  line-height: 26px;
+  transition: height 0.7s ease, border 0.7s ease;
+
+  &:focus {
+    outline: none;
+    border: 1px dotted var(--penombre-brown);
+    height: 140px;
+  }
+}
+
+.pouvoir-row select[name="attr_pouvoir_type"] {
+  height: 32px;
+  width: 84px;
+  border: none;
+  border-bottom: 1px dotted var(--penombre-brown);
+  background: transparent;
+  padding: 0 8px;
+  margin: 0;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-family: var(--penombre-font-freely);
+}
+
+.pouvoir-row button.btn-roll {
+  margin-top: 5px;
+  height: 100%;
 }
 
 /* === Atouts === */
-.section-atouts,
-.section-magie {
-  background: var(--penombre-white);
-  margin-bottom: 10px;
-  padding: 6px;
+
+.col-atouts {
+  flex: 1;
+}
+
+.atout-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.atout-row input[type="text"] {
+  flex: 2;
+  height: 32px;
+  border: none;
+  border-bottom: 1px dotted var(--penombre-brown);
+  background: transparent;
+  padding: 0 8px;
+  font-family: var(--penombre-font-freely);
+  font-size: 1.5rem;
+}
+
+/* Conteneur niveaux */
+.atout-level {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+/* Conteneur des niveaux */
+.atout-level {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Cases personnalisées */
+.atout-row input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
 }
 
 .case {
@@ -492,4 +659,94 @@ input[name="attr_cmax"][value="15"] ~ .tokens .token:nth-child(n + 16) {
 }
 .case:checked {
   background-image: url("https://i.imgur.com/2aG5NM1.png");
+}
+
+/* === Maîtrises Magiques === */
+.col-magies {
+  flex: 1;
+}
+
+.magie-row {
+  display: flex;
+  align-items: flex-start;
+  /* flex-wrap: wrap; */
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.magie-row textarea {
+  flex: 2;
+  height: 26px;
+  margin-top: 5px;
+  border: none;
+  border-bottom: 1px dotted var(--penombre-brown);
+  background: transparent;
+  padding: 0 8px;
+  font-family: var(--penombre-font-freely);
+  font-size: 1.5rem;
+  resize: none;
+  overflow: hidden;
+  line-height: 26px;
+  transition: height 0.7s ease, border 0.7s ease;
+  width: 120px;
+
+  &:focus {
+    outline: none;
+    border: 1px dotted var(--penombre-brown);
+    height: 140px;
+  }
+}
+
+.magie-row select[name="attr_magie_harmonique"] {
+  height: 32px;
+  width: 75px;
+  border: none;
+  border-bottom: 1px dotted var(--penombre-brown);
+  background: transparent;
+  padding: 0 8px;
+  margin: 0;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-family: var(--penombre-font-freely);
+}
+
+.potentiel-img {
+  height: 20px;
+  width: 20px;
+  background: url("https://i.imgur.com/FsnUzgN.png") center/contain no-repeat;
+}
+
+.magie-row input[type="number"] {
+  height: 32px;
+  border: none;
+  border-bottom: 1px dotted var(--penombre-brown);
+  appearance: none;
+  -moz-appearance: textfield;
+  background: transparent;
+  padding: 0 8px;
+  font-size: 1.5rem;
+  font-family: var(--penombre-font-freely);
+  width: 20px;
+}
+
+.magie-row input[type="number"].magie-level-input::-webkit-inner-spin-button,
+input[type="number"].magie-level-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.magie-row input[type="text"] {
+  height: 32px;
+  border: none;
+  border-bottom: 1px dotted var(--penombre-brown);
+  background: transparent;
+  padding: 0 8px;
+  width: 110px;
+  font-family: var(--penombre-font-freely);
+  font-size: 1.5rem;
+}
+
+.magie-row button.btn-roll {
+  margin-top: 5px;
+  height: 100%;
 }

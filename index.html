@@ -6,7 +6,7 @@
         <!-- Colonne gauche -->
         <div class="col-left">
 
-            <!-- Identité -->
+            <!-- ================= Identité ================== -->
             <section class="section-identite">
                 <div class="identite-container">
                     <h3 class="titre-vertical identite-titre">
@@ -24,7 +24,7 @@
             </section>
 
 
-            <!-- Harmoniques -->
+            <!-- ================= Harmoniques ================== -->
             <section class="section-harmoniques">
                 <div class="harmoniques-container">
                     <h3 class="titre-vertical harmoniques-titre">
@@ -209,42 +209,120 @@
                 <img src="https://i.imgur.com/RqiNP2C.png" class="logo" alt="Logo Pénombre">
             </header>
 
-            <!-- Pouvoirs -->
-            <section class="section-pouvoirs">
-                <h3>Pouvoirs</h3>
-                <fieldset class="repeating_pouvoirs">
-                    <div class="pouvoir">
-                        <img src="https://i.imgur.com/FsnUzgN.png" class="icon-potentiel">
-                        <input type="number" name="attr_potentiel_pouvoir" value="0" class="potentiel">
-                        <input type="checkbox" class="toggle-description" title="Afficher la description">
-                        <div class="input-wrapper">
-                            <input type="text" name="attr_nom_pouvoir" placeholder="Nom du pouvoir" class="nom-pouvoir">
-                            <textarea name="attr_desc_pouvoir" class="desc-pouvoir"
-                                placeholder="Description du pouvoir..."></textarea>
+            <!-- ================= Pouvoirs ================== -->
+            <section class="pouvoirs">
+                <h2>Pouvoirs</h2>
+
+                <div class="capacites-flex">
+                    <!-- Colonne gauche : Potentiel -->
+                    <div class="col-potentiel">
+                        <div class="potentiel-wrap">
+                            <div class="potentiel-img" aria-hidden="true"></div>
+                            <input type="number" name="attr_pouvoir_potentiel" class="potentiel-input" value="0"
+                                min="0">
+                            <div class="potentiel-caption">Potentiel</div>
                         </div>
-                        <input type="text" name="attr_type_pouvoir" placeholder="Type" class="type-pouvoir">
                     </div>
-                </fieldset>
+
+                    <!-- Colonne droite : pouvoirs -->
+                    <div class="col-pouvoirs">
+
+                        <fieldset class="repeating_pouvoirs">
+                            <div class="pouvoir-row">
+                                <input type="checkbox" name="attr_pouvoir_used">
+                                <input type="text" name="attr_nom_pouvoir" placeholder="Nom du pouvoir">
+                                <textarea name="attr_pouvoir" placeholder="Pouvoir"></textarea>
+                                <select name="attr_pouvoir_type">
+                                    <option value="naissance">Naissance</option>
+                                    <option value="peuple">Peuple</option>
+                                    <option value="cle">Clé</option>
+                                    <option value="gamme">Gamme</option>
+                                    <option value="ton">Ton</option>
+                                </select>
+                                <button type="roll" name="roll_pouvoir" class="btn-roll" value="">
+                                </button>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
             </section>
 
-            <!-- Atouts -->
-            <section class="section-atouts">
-                <h3>Atouts</h3>
-                <fieldset class="repeating_atouts">
-                    <input type="text" name="attr_nom_atout" placeholder="Nom">
-                    <input type="text" name="attr_valeur_atout" placeholder="Valeur">
-                    <input type="checkbox" class="case" name="attr_case_atout">
-                </fieldset>
+            <!-- ================= Atouts ================== -->
+            <section class="atouts">
+                <h2>Atouts</h2>
+
+                <div class="capacites-flex">
+                    <!-- Colonne gauche : Potentiel -->
+                    <div class="col-potentiel">
+                        <div class="potentiel-wrap">
+                            <div class="potentiel-img" aria-hidden="true"></div>
+                            <input type="number" name="attr_atout_potentiel" class="potentiel-input" value="0" min="0">
+                            <div class="potentiel-caption">Potentiel</div>
+                        </div>
+                    </div>
+
+                    <!-- Colonne droite : atouts -->
+                    <div class="col-atouts">
+
+                        <fieldset class="repeating_atouts">
+                            <div class="atout-row">
+                                <input type="text" name="attr_nom_atout" placeholder="Nom de l'atout">
+                                <div class="atout-level-row">
+                                    <input type="checkbox" class="case" name="attr_lvl1">
+                                    <input type="checkbox" class="case" name="attr_lvl2">
+                                    <input type="checkbox" class="case" name="attr_lvl3">
+
+                                    <input type="hidden" name="attr_atout_nd6" value="0">
+                                </div>
+
+                                <button type="roll" name="roll_atout" class="btn-roll" value="/r @{atout_nd6}d6">
+                                </button>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
             </section>
 
-            <!-- Maîtrises magiques -->
-            <section class="section-magie">
-                <h3>Maîtrises magiques</h3>
-                <fieldset class="repeating_magie">
-                    <input type="text" name="attr_nom_magie" placeholder="Nom">
-                    <input type="text" name="attr_harmonique_magie" placeholder="Harmonique">
-                    <input type="text" name="attr_prerequis_magie" placeholder="Prérequis">
-                </fieldset>
+            <!-- ================= Maîtrises magiques ================== -->
+
+            <section class="maitrise-magie">
+                <h2>Pouvoirs</h2>
+
+                <div class="capacites-flex">
+                    <!-- Colonne gauche : Potentiel -->
+                    <div class="col-potentiel">
+                        <div class="potentiel-wrap">
+                            <div class="potentiel-img" aria-hidden="true"></div>
+                            <input type="number" name="attr_magie_potentiel" class="potentiel-input" value="0" min="0">
+                            <div class="potentiel-caption">Potentiel</div>
+                        </div>
+                    </div>
+
+                    <!-- Colonne droite : maitrises magiques -->
+                    <div class="col-magies">
+
+                        <fieldset class="repeating_magies">
+                            <div class="magie-row">
+                                <!-- <input type="text" name="attr_nom_magie" placeholder="Nom de la magie"> -->
+                                <input type="text" name="attr_magie" placeholder="Magie">
+                                <select name="attr_magie_harmonique">
+                                    <option value="@{ame}">Âme</option>
+                                    <option value="@{esprit}">Esprit</option>
+                                    <option value="@{etincelle}">Étincelle</option>
+                                    <option value="@{nature}">Nature</option>
+                                    <option value="@{nuit}">Nuit</option>
+                                </select>
+                                <textarea name="attr_magie_prerequis" placeholder="prérequis &#x21B5;"></textarea>
+                                <div class="magie-lvl-img" aria-hidden="true">
+                                    <input type="number" name="attr_magie_niveau" class="magie-lvl-input" value="0"
+                                        min="0" max="5">
+                                </div>
+
+
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
             </section>
 
         </div>
@@ -274,4 +352,69 @@
       });
     });
   });
+
+  on("change:repeating_atouts:lvl1 change:repeating_atouts:lvl2 change:repeating_atouts:lvl3", (e) => {
+    const base = e.sourceAttribute.replace(/_(lvl1|lvl2|lvl3)$/, "");
+    
+    // Détermine quelle case a été modifiée
+    const changedLevel = e.sourceAttribute.match(/lvl([123])$/)?.[1];
+    
+    const keys = [`${base}_lvl1`, `${base}_lvl2`, `${base}_lvl3`];
+    
+    getAttrs(keys, (v) => {
+        let l1 = v[`${base}_lvl1`] === "on";
+        let l2 = v[`${base}_lvl2`] === "on";
+        let l3 = v[`${base}_lvl3`] === "on";
+        
+        // === Logique hiérarchique bidirectionnelle ===
+        
+        if (changedLevel === "3") {
+            // On a cliqué sur niveau 3
+            if (l3) {
+                // Cocher 3 → coche aussi 1 et 2
+                l1 = true;
+                l2 = true;
+            } else {
+                // Décocher 3 → laisse 1 et 2 tels quels
+                // (ne fait rien)
+            }
+        } else if (changedLevel === "2") {
+            // On a cliqué sur niveau 2
+            if (l2) {
+                // Cocher 2 → coche aussi 1, décoche 3
+                l1 = true;
+                l2 = true;
+                l3 = false;
+            } else {
+                // Décocher 2 → décoche aussi 3, laisse 1 tel quel
+                l3 = false;
+                l2 = false;
+            }
+        } else if (changedLevel === "1") {
+            // On a cliqué sur niveau 1
+            if (l1) {
+                // Cocher 1 → décoche 2 et 3
+                l2 = false;
+                l3 = false;
+                l1 = true;
+            } else {
+                // Décocher 1 → décoche tout
+                l2 = false;
+                l3 = false;
+                
+            }
+        }
+        
+        // Calcule le nombre de dés (compte combien sont cochés)
+        const nd6 = (l1 ? 1 : 0) + (l2 ? 1 : 0) + (l3 ? 1 : 0);
+        
+        const set = {};
+        set[`${base}_lvl1`] = l1 ? "on" : "0";
+        set[`${base}_lvl2`] = l2 ? "on" : "0";
+        set[`${base}_lvl3`] = l3 ? "on" : "0";
+        set[`${base}_atout_nd6`] = String(nd6);
+        
+        setAttrs(set, { silent: true });
+    });
+});
 </script>
