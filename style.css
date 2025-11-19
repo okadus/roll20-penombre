@@ -88,6 +88,28 @@
   display: block;
 }
 
+/* Bouton actif selon l’onglet sélectionné */
+.sheet_tabs button[data-tab="eminence"][name="act_eminence"]::after,
+.sheet_tabs button[data-tab="adversaire"][name="act_adversaire"]::after,
+.sheet_tabs button[data-tab="collegial"][name="act_collegial"]::after {
+  content: "";
+}
+
+.charsheet
+  .sheet-tabstoggle[value="eminence"]
+  ~ .sheet_tabs
+  button[data-tab="eminence"],
+.charsheet
+  .sheet-tabstoggle[value="adversaire"]
+  ~ .sheet_tabs
+  button[data-tab="adversaire"],
+.charsheet
+  .sheet-tabstoggle[value="collegial"]
+  ~ .sheet_tabs
+  button[data-tab="collegial"] {
+  border: 1px solid var(--penombre-light);
+}
+
 /* ========================================
           FEUILLE D'ÉMINENCE GRISE
 ======================================== */
@@ -100,7 +122,7 @@
       rgba(248, 242, 234, 0.1) 70%
     ),
     /* fondu beige → transparent */
-      url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/banner.png?raw=true")
+      url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/banner.png")
       left center / 70% 100% no-repeat;
   position: relative;
   min-height: 100px;
@@ -155,7 +177,7 @@
 }
 
 .identite-titre {
-  background: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/marron.webp?raw=true")
+  background: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/marron.webp")
     center 60% / 50% no-repeat;
   color: var(--penombre-brown);
 }
@@ -190,7 +212,7 @@ h3.titre-vertical span {
 
 .identite-champ label {
   font-weight: bold;
-  color: #6a3d1e;
+  color: var(--penombre-brown);
   display: inline-block;
   margin: 0;
   width: 40px;
@@ -199,10 +221,9 @@ h3.titre-vertical span {
 
 .identite-champ input {
   border: none;
-  border-bottom: 1px dotted #9d8a74;
+  border-bottom: 1px dotted var(--penombre-brown);
   background: transparent;
   margin-bottom: 3px;
-  width: calc(100% - 10px);
   display: inline-block;
   font-family: var(--penombre-font-freely);
   font-size: 1.5em;
@@ -213,7 +234,7 @@ h3.titre-vertical span {
 .harmoniques {
   text-align: center;
   padding: 6px;
-  background: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/fond-coupe.webp?raw=true")
+  background: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/fond-coupe.webp")
     no-repeat 90% center;
   background-size: 70%;
   background-color: var(--penombre-white);
@@ -221,7 +242,7 @@ h3.titre-vertical span {
 }
 
 .harmoniques-titre {
-  background: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/grise.webp?raw=true")
+  background: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/grise.webp")
     center 60% / 50% no-repeat;
   color: var(--penombre-green);
 }
@@ -273,7 +294,7 @@ h3.harmoniques-titre span {
 .harmonique {
   width: 100px;
   height: 100px;
-  background-image: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/case_de_penombre.webp?raw=true");
+  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/case_de_penombre.webp");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -339,7 +360,7 @@ button[type="roll"].label-btn::before {
 }
 
 .conscience-titre {
-  background: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/doree.webp?raw=true")
+  background: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/doree.webp")
     center 60% / 50% no-repeat;
   color: var(--penombre-gold);
 }
@@ -402,13 +423,13 @@ h3.conscience-titre span {
 
 /* États visuels */
 input[name^="attr_token"][value="0"] + .token-btn {
-  background-image: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/jeton_face_inactive.webp?raw=true");
+  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/jeton_face_inactive.webp");
 }
 input[name^="attr_token"][value="1"] + .token-btn {
-  background-image: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/cercle.webp?raw=true");
+  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/cercle.webp");
 }
 input[name^="attr_token"][value="2"] + .token-btn {
-  background-image: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/jeton_face_active.webp?raw=true");
+  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/jeton_face_active.webp");
 }
 
 /* === Masquage au-delà du cmax === */
@@ -536,7 +557,8 @@ input[name="attr_cmax"][value="15"] ~ .tokens .token:nth-child(n + 16) {
 .potentiel-img {
   width: 80px;
   height: 80px;
-  background: url("https://i.imgur.com/FsnUzgN.png") center/contain no-repeat;
+  background: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/potentiel.webp")
+    center/contain no-repeat;
 }
 
 input[type="number"].potentiel-input::-webkit-inner-spin-button,
@@ -703,14 +725,14 @@ input[type="number"].potentiel-input {
 .case {
   width: 32px;
   height: 32px;
-  background-image: url("https://i.imgur.com/IIe527s.png");
+  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/de_case_unchecked.webp");
   background-size: cover;
   border: none;
   appearance: none;
   cursor: pointer;
 }
 .case:checked {
-  background-image: url("https://i.imgur.com/2aG5NM1.png");
+  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/de_case_checked.webp");
 }
 
 /* === Maîtrises Magiques === */
@@ -824,7 +846,6 @@ textarea.notes-textarea {
 
   &:focus {
     outline: none;
-    height: 200px;
   }
 }
 
@@ -865,7 +886,6 @@ textarea.notes-textarea {
 
 .adversaire-feuille {
   background: var(--penombre-white);
-  padding: 12px;
   width: 60%;
   margin: 0 auto 10px;
 }
@@ -873,21 +893,51 @@ textarea.notes-textarea {
 .adversaire-feuille .titre-section {
   font-family: var(--penombre-font-cattedrale);
   text-align: center;
-  font-size: 2rem;
-  color: var(--penombre-brown);
+  font-size: 2.8rem;
+  color: var(--penombre-light);
+  padding: 1.5rem 0 2.5rem 0;
   margin-bottom: 12px;
+  background: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/adversite.webp")
+    no-repeat center;
+  background-size: cover;
+}
+
+.adversaire-content {
+  padding: 12px;
 }
 
 .adversaire-entete {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  gap: 2px;
   margin-bottom: 12px;
 }
 
-.adversaire-entete label {
+.adversaire-content input[type="text"].adversaire-nom,
+.adversaire-content input[type="text"].adversaire-concept {
+  background-color: transparent;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.adversaire-entete input[type="text"].adversaire-nom {
+  font-size: 3rem;
   font-weight: bold;
+  text-align: center;
+  font-family: var(--penombre-font-cattedrale);
   color: var(--penombre-brown);
+}
+
+.adversaire-entete input[type="text"].adversaire-concept {
+  font-size: 1.8rem;
+  text-align: center;
+  font-family: var(--penombre-font-freely);
+  color: var(--penombre-text);
+  transform: translateY(-5px);
 }
 
 .adversaire-entete input[type="text"],
@@ -931,22 +981,187 @@ textarea.notes-textarea {
   font-size: 1.2rem;
 }
 
-.section-rep {
+select.dissonance-select {
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  appearance: none;
+  cursor: pointer;
+  font-family: var(--penombre-font-freely);
+  width: 60px !important;
+  margin-left: 10px;
+}
+
+.adversaire-section-rep {
   margin-top: 12px;
 }
 
-.section-rep h3 {
-  font-family: var(--penombre-font-title, "IM Fell English SC", serif);
-  color: var(--penombre-brown);
-  border-bottom: 1px solid var(--penombre-brown);
+.adversaire-section-rep h3 {
+  font-family: var(--penombre-font-cattedrale);
+  color: var(--penombre-green);
   margin-bottom: 8px;
 }
 
-.section-rep textarea {
+.adversaire-section-rep textarea {
+  width: 100%;
+  border: 1px dotted var(--penombre-brown);
+  background: transparent;
+  height: 50px;
+  resize: vertical;
+  font-size: 1.2rem;
+  color: var(--penombre-text);
+  transition: height 0.7s ease;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.adversaire-section-rep input[type="text"] {
   width: 100%;
   border: none;
   border-bottom: 1px dotted var(--penombre-brown);
   background: transparent;
-  resize: vertical;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  font-family: var(--penombre-font-freely);
+  color: var(--penombre-text);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/* ========================================
+          FEUILLE COLLÉGIALE
+======================================== */
+
+/* Conteneur principal */
+.sheet_collegial {
+  width: 100%;
+  padding: 20px;
+}
+
+.collegiale-container {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  background: url("https://i.imgur.com/ilPHlYb.jpeg") center center no-repeat;
+  background-size: contain;
+}
+
+/* Cache les vrais inputs checkbox */
+.jeton-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Style de base des jetons (labels cliquables) */
+.jeton {
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  display: inline-block; /* Force la taille exacte */
+  cursor: pointer;
+  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/jeton_face_inactive.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.15s ease, filter 0.15s ease;
+  /* Centrage : on décale de -50% pour centrer réellement */
+  transform: translate(-50%, -50%);
+  /* Empêche tout contenu texte de déborder */
+  overflow: hidden;
+  line-height: 0;
+  font-size: 0;
+}
+
+/* Hover effect */
+.jeton:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  filter: brightness(1.1);
+}
+
+/* Quand le checkbox est coché → change l'image */
+.jeton-input:checked + .jeton {
+  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/jeton_face_active.webp");
+  transform: translate(-50%, -50%);
+}
+
+.jeton-input:checked + .jeton:hover {
+  transform: translate(-50%, -50%) scale(1.09);
+}
+
+.collegiale-container label {
+  width: 78px !important;
+  height: 78px !important;
+}
+
+/* ========================================
+   POSITIONNEMENT DES JETONS
+   Basé sur l'image de référence
+   ======================================== */
+
+/* ========================================
+   POSITIONNEMENT DES JETONS
+   Ajustement collectif via margin-top supplémentaire
+   ======================================== */
+
+/* Rangée 1 - 1 jeton au centre haut */
+.jeton1 {
+  top: 29%;
+  left: 50%;
+}
+
+/* Rangée 2 - 3 jetons */
+.jeton2 {
+  top: 36%;
+  left: 36%;
+}
+
+.jeton3 {
+  top: 43%;
+  left: 50%;
+}
+
+.jeton4 {
+  top: 36%;
+  left: 64%;
+}
+
+/* Rangée 3 - 3 jetons */
+.jeton5 {
+  top: 50%;
+  left: 36%;
+}
+
+.jeton6 {
+  top: 57%;
+  left: 50%;
+}
+
+.jeton7 {
+  top: 50%;
+  left: 64%;
+}
+
+/* Rangée 4 - 3 jetons */
+.jeton8 {
+  top: 64%;
+  left: 36%;
+}
+
+.jeton9 {
+  top: 71%;
+  left: 50%;
+}
+
+.jeton10 {
+  top: 64%;
+  left: 64%;
 }

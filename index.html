@@ -2,9 +2,9 @@
 
     <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="eminence" />
     <div class="sheet_tabs">
-        <button type="action" name="act_eminence">Eminence Grise</button>
-        <button type="action" name="act_adversaire">Adversaire</button>
-        <button type="action" name="act_collegial">Feuille Collégiale</button>
+        <button type="action" name="act_eminence" data-tab="eminence">Eminence Grise</button>
+        <button type="action" name="act_adversaire" data-tab="adversaire">Adversaire</button>
+        <button type="action" name="act_collegial" data-tab="collegial">Feuille Collégiale</button>
     </div>
 
     <section class="sheet_eminence">
@@ -369,54 +369,117 @@
     <section class="sheet_adversaire">
         <div class="adversaire-feuille">
             <h2 class="titre-section">Feuille d’adversaire</h2>
+            <div class="adversaire-content">
 
-            <div class="adversaire-entete">
-                <label>Nom :</label>
-                <input type="text" name="attr_adversaire_nom" placeholder="Nom de l’adversaire">
-
-                <label>Concept :</label>
-                <textarea name="attr_adversaire_concept" placeholder="Brève description du concept..."></textarea>
-            </div>
-
-            <div class="adversaire-jauges">
-                <div class="jauge">
-                    <label>Adversité</label>
-                    <input type="number" name="attr_adversite" value="1" min="0" class="jauge-input">
+                <div class="adversaire-entete">
+                    <input type="text" name="attr_char_name" class="adversaire-nom" placeholder="Nom de l’adversaire">
+                    <input type="text" name="attr_adversaire_concept" class="adversaire-concept"
+                        placeholder="Concept de l'adversaire">
                 </div>
 
-                <div class="jauge">
-                    <label>Résilience</label>
-                    <input type="number" name="attr_resilience" value="3" min="0" readonly class="jauge-input">
+                <div class="adversaire-jauges">
+                    <div class="jauge">
+                        <label>Adversité</label>
+                        <div class="valeurs">
+                            <input type="number" name="attr_adversite_actuelle" value="1" min="0" class="jauge-input">
+                            <span>/</span>
+                            <input type="number" name="attr_adversite_base" value="1" min="0" class="jauge-input">
+                        </div>
+                    </div>
+
+                    <div class="jauge">
+                        <label>Résilience</label>
+                        <div class="valeurs">
+                            <input type="number" name="attr_resilience_actuelle" value="3" min="0" class="jauge-input">
+                            <span>/</span>
+                            <input type="number" name="attr_resilience" class="jauge-input"
+                                value="(@{adversite_base}*3)" disabled>
+                        </div>
+
+                    </div>
+
+                    <div class="jauge">
+                        <label>Dissonance</label>
+                        <div class="valeurs">
+                            <input type="number" name="attr_dissonance" value="0" min="0" class="jauge-input">
+                            <select name="attr_dissonnance_harmonique" class="dissonance-select">
+                                <option value="-" selected>Aucune</option>
+                                <option value="Âme">Âme</option>
+                                <option value="Esprit">Esprit</option>
+                                <option value="Étincelle">Étincelle</option>
+                                <option value="Nature">Nature</option>
+                                <option value="Nuit">Nuit</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="jauge">
-                    <label>Dissonance</label>
-                    <input type="number" name="attr_dissonance" value="0" min="0" class="jauge-input">
+                <div class="adversaire-section-rep">
+                    <h3>Actions adverses</h3>
+                    <fieldset class="repeating_actions_adverses">
+                        <input type="text" name="attr_action_adverse_nom" placeholder="Nom de l’action adverse">
+                        <textarea name="attr_action_adverse_desc"
+                            placeholder="Décris ici l’action adverse..."></textarea>
+                    </fieldset>
                 </div>
-            </div>
 
-            <div class="section-rep">
-                <h3>Actions adverses</h3>
-                <fieldset class="repeating_actions_adverses">
-                    <textarea name="attr_action_adverse" placeholder="Décris ici l’action adverse..."></textarea>
-                </fieldset>
-            </div>
-
-            <div class="section-rep">
-                <h3>Intrigues</h3>
-                <fieldset class="repeating_intrigues">
-                    <textarea name="attr_intrigue" placeholder="Décris ici l’intrigue ou piste narrative..."></textarea>
-                </fieldset>
+                <div class="adversaire-section-rep">
+                    <h3>Intrigues</h3>
+                    <fieldset class="repeating_intrigues">
+                        <input type="text" name="attr_intrigue_nom" placeholder="Nom de l’intrigue">
+                        <textarea name="attr_intrigue_desc"
+                            placeholder="Décris ici l’intrigue ou piste narrative..."></textarea>
+                    </fieldset>
+                </div>
             </div>
         </div>
 
     </section>
 
     <section class="sheet_collegial">
-        <div class="collegial-feuille">
-            <h2 class="titre-section">Feuille collégiale</h2>
+        <div class="collegiale-container">
+            <!-- Jeton 1 (haut centre) -->
+            <input type="checkbox" name="attr_jeton1" id="jeton1" class="jeton-input">
+            <label for="jeton1" class="jeton jeton1"></label>
+
+            <!-- Jeton 2 (rangée 2 gauche) -->
+            <input type="checkbox" name="attr_jeton2" id="jeton2" class="jeton-input">
+            <label for="jeton2" class="jeton jeton2"></label>
+
+            <!-- Jeton 3 (rangée 2 centre) -->
+            <input type="checkbox" name="attr_jeton3" id="jeton3" class="jeton-input">
+            <label for="jeton3" class="jeton jeton3"></label>
+
+            <!-- Jeton 4 (rangée 2 droite) -->
+            <input type="checkbox" name="attr_jeton4" id="jeton4" class="jeton-input">
+            <label for="jeton4" class="jeton jeton4"></label>
+
+            <!-- Jeton 5 (rangée 3 gauche) -->
+            <input type="checkbox" name="attr_jeton5" id="jeton5" class="jeton-input">
+            <label for="jeton5" class="jeton jeton5"></label>
+
+            <!-- Jeton 6 (rangée 3 centre) -->
+            <input type="checkbox" name="attr_jeton6" id="jeton6" class="jeton-input">
+            <label for="jeton6" class="jeton jeton6"></label>
+
+            <!-- Jeton 7 (rangée 3 droite) -->
+            <input type="checkbox" name="attr_jeton7" id="jeton7" class="jeton-input">
+            <label for="jeton7" class="jeton jeton7"></label>
+
+            <!-- Jeton 8 (rangée 4 gauche) -->
+            <input type="checkbox" name="attr_jeton8" id="jeton8" class="jeton-input">
+            <label for="jeton8" class="jeton jeton8"></label>
+
+            <!-- Jeton 9 (rangée 4 centre) -->
+            <input type="checkbox" name="attr_jeton9" id="jeton9" class="jeton-input">
+            <label for="jeton9" class="jeton jeton9"></label>
+
+            <!-- Jeton 10 (rangée 4 droite) -->
+            <input type="checkbox" name="attr_jeton10" id="jeton10" class="jeton-input">
+            <label for="jeton10" class="jeton jeton10"></label>
         </div>
     </section>
+
 
 
 </div>
@@ -430,6 +493,7 @@
             });
         });
     });
+
   /* Synchronise la valeur de Conscience Max -> cmax */
   on("change:conscience_max sheet:opened", function() {
     getAttrs(["conscience_max"], function(v) {
@@ -518,4 +582,27 @@
         setAttrs(set, { silent: true });
     });
 });
+
+/* Calcul de la limit des jauges */
+on("change:adversite_base change:adversite_actuelle change:resilience_actuelle", function() {
+    getAttrs(["adversite_base", "adversite_actuelle", "resilience_actuelle"], function(values) {
+        let adversite_base = parseInt(values.adversite_base) || 0;
+        let adversite_actuelle = parseInt(values.adversite_actuelle) || 0;
+        let resilience_actuelle = parseInt(values.resilience_actuelle) || 0;
+
+        // Calcule la résilience de base
+        let resilience_base = adversite_base * 3;
+
+        // Vérifie les limites
+        if (adversite_actuelle > adversite_base) adversite_actuelle = adversite_base;
+        if (resilience_actuelle > resilience_base) resilience_actuelle = resilience_base;
+
+        setAttrs({
+            adversite_actuelle,
+            resilience_base,
+            resilience_actuelle
+        });
+    });
+});
+
 </script>
