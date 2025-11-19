@@ -46,6 +46,52 @@
   overflow: hidden;
 }
 
+/* ========================================
+          Onglets de la feuille
+======================================== */
+
+/* configure the tab buttons */
+.charsheet .sheet_eminence,
+.charsheet .sheet_adversaire,
+.charsheet .sheet_collegial {
+  display: none;
+}
+
+.sheet_tabs {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin: 4px 0;
+}
+
+.sheet_tabs button {
+  padding: 0.6rem 0.6rem;
+  border-radius: 10px;
+  font-size: 16px;
+  background-image: none;
+  background-color: transparent;
+  color: var(--penombre-light);
+  border: 1px dotted transparent;
+  text-shadow: none;
+  font-family: var(--penombre-font-cattedrale);
+  cursor: pointer;
+
+  &:hover {
+    border: 1px dotted var(--penombre-light);
+  }
+}
+
+/* show the selected tab */
+.charsheet .sheet-tabstoggle[value="eminence"] ~ section.sheet_eminence,
+.charsheet .sheet-tabstoggle[value="adversaire"] ~ section.sheet_adversaire,
+.charsheet .sheet-tabstoggle[value="collegial"] ~ section.sheet_collegial {
+  display: block;
+}
+
+/* ========================================
+          FEUILLE D'ÉMINENCE GRISE
+======================================== */
+
 /* === Bandeau === */
 .header {
   background: linear-gradient(
@@ -75,7 +121,7 @@
 .columns {
   display: flex;
   gap: 12px;
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .col-left {
   flex: 0 0 40%;
@@ -85,7 +131,7 @@
 }
 
 /* === Identité === */
-.section-identite {
+.identite {
   background: var(--penombre-white);
   padding: 8px;
   margin-bottom: 10px;
@@ -164,7 +210,7 @@ h3.titre-vertical span {
 }
 
 /* === Harmoniques === */
-.section-harmoniques {
+.harmoniques {
   text-align: center;
   padding: 6px;
   background: url("https://github.com/okadus/roll20-penombre/blob/main/assets/img/fond-coupe.webp?raw=true")
@@ -211,15 +257,16 @@ h3.harmoniques-titre span {
 }
 
 .esprit-wrap {
-  transform: translateX(30%);
+  transform: translateX(40%);
 }
 
 .nature-wrap {
-  transform: translateX(-35%);
+  transform: translateX(-40%);
 }
 
 .etincelle-wrap {
   transform: translateX(50%);
+  margin-top: -80px;
 }
 
 /* Visuel harmonique */
@@ -246,7 +293,7 @@ h3.harmoniques-titre span {
   cursor: pointer;
   font-family: var(--penombre-font-freely);
   height: 60px;
-  width: 60px;
+  width: 60px !important;
   line-height: 60px;
   margin-left: 10px;
 }
@@ -286,7 +333,7 @@ button[type="roll"].label-btn::before {
 }
 
 /* ===== Conscience ===== */
-.section-conscience {
+.conscience {
   background: var(--penombre-white);
   padding: 8px;
 }
@@ -444,11 +491,11 @@ input[name="attr_cmax"][value="15"] ~ .tokens .token:nth-child(n + 16) {
   margin: 4px 0 0;
 }
 
-/* ====== Section Pouvoirs ====== */
+/* ====== Pouvoirs ====== */
 .pouvoirs,
 .atouts,
 .maitrise-magie,
-.notes-section,
+.notes,
 .aide-joueur {
   background: var(--penombre-white);
   padding: 10px;
@@ -458,7 +505,7 @@ input[name="attr_cmax"][value="15"] ~ .tokens .token:nth-child(n + 16) {
 .pouvoirs h2,
 .atouts h2,
 .maitrise-magie h2,
-.notes-section h2 {
+.notes h2 {
   font-family: var(--penombre-font-cattedrale);
   font-size: 2.8rem;
   color: var(--penombre-text);
@@ -788,8 +835,9 @@ textarea.notes-textarea {
 .aides-wrap {
   display: flex;
   justify-content: center; /* centre l'ensemble */
+  align-items: center;
   gap: 6px;
-  margin: 1rem auto 0 0.8rem;
+  margin: 1rem auto 10px 0.8rem;
   width: 110%;
 }
 
@@ -809,4 +857,96 @@ textarea.notes-textarea {
 
 .aide-jetons-img img {
   max-height: 117px;
+}
+
+/* ========================================
+          FEUILLE ADVERSAIRE
+======================================== */
+
+.adversaire-feuille {
+  background: var(--penombre-white);
+  padding: 12px;
+  width: 60%;
+  margin: 0 auto 10px;
+}
+
+.adversaire-feuille .titre-section {
+  font-family: var(--penombre-font-cattedrale);
+  text-align: center;
+  font-size: 2rem;
+  color: var(--penombre-brown);
+  margin-bottom: 12px;
+}
+
+.adversaire-entete {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.adversaire-entete label {
+  font-weight: bold;
+  color: var(--penombre-brown);
+}
+
+.adversaire-entete input[type="text"],
+.adversaire-entete textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px dotted var(--penombre-brown);
+  background: transparent;
+  font-size: 1rem;
+  resize: none;
+}
+
+.adversaire-jauges {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin: 12px 0;
+  border-top: 2px solid var(--penombre-brown);
+  border-bottom: 2px solid var(--penombre-brown);
+  padding: 8px 0;
+}
+
+.adversaire-jauges .jauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jauge label {
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: var(--penombre-brown);
+}
+
+.jauge-input {
+  width: 40px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px dotted var(--penombre-brown);
+  background: transparent;
+  font-size: 1.2rem;
+}
+
+.section-rep {
+  margin-top: 12px;
+}
+
+.section-rep h3 {
+  font-family: var(--penombre-font-title, "IM Fell English SC", serif);
+  color: var(--penombre-brown);
+  border-bottom: 1px solid var(--penombre-brown);
+  margin-bottom: 8px;
+}
+
+.section-rep textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px dotted var(--penombre-brown);
+  background: transparent;
+  resize: vertical;
+  font-size: 1rem;
 }
