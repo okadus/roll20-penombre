@@ -43,6 +43,7 @@
   border-radius: 6px;
   padding: 0 10px 0;
   min-width: 833px;
+  overflow: hidden;
 }
 
 /* === Bandeau === */
@@ -447,7 +448,8 @@ input[name="attr_cmax"][value="15"] ~ .tokens .token:nth-child(n + 16) {
 .pouvoirs,
 .atouts,
 .maitrise-magie,
-.notes-section {
+.notes-section,
+.aide-joueur {
   background: var(--penombre-white);
   padding: 10px;
   margin-bottom: 10px;
@@ -591,7 +593,7 @@ input[type="number"].potentiel-input {
 
 .pouvoir-row select[name="attr_pouvoir_type"] {
   height: 32px;
-  width: 84px;
+  width: 90px;
   border: none;
   border-bottom: 1px dotted var(--penombre-brown);
   background: transparent;
@@ -693,7 +695,7 @@ input[type="number"].potentiel-input {
   overflow: hidden;
   line-height: 26px;
   transition: height 0.7s ease, border 0.7s ease;
-  min-width: 120px;
+  min-width: 115px;
 
   &:focus {
     outline: none;
@@ -704,7 +706,7 @@ input[type="number"].potentiel-input {
 
 .magie-row select[name="attr_magie_harmonique"] {
   height: 32px;
-  width: 75px;
+  width: 80px;
   border: none;
   border-bottom: 1px dotted var(--penombre-brown);
   background: transparent;
@@ -769,7 +771,7 @@ textarea.notes-textarea {
   border: 1px dotted var(--penombre-brown);
   background: transparent;
   padding: 8px;
-  font-size: 1.5rem;
+  font-size: 1rem !important;
   resize: vertical;
   transition: height 0.7s ease;
 
@@ -777,4 +779,34 @@ textarea.notes-textarea {
     outline: none;
     height: 200px;
   }
+}
+
+/* === aide de jeu === */
+.aide-joueur h2 {
+  display: none;
+}
+.aides-wrap {
+  display: flex;
+  justify-content: center; /* centre l'ensemble */
+  gap: 6px;
+  margin: 1rem auto 0 0.8rem;
+  width: 110%;
+}
+
+.aide-jetons-img {
+  width: 70%; /* occupe la moitié de l'espace */
+  min-height: 100px;
+}
+
+.aide-succes-img {
+  width: 34%; /* occupe la moitié de l'espace */
+}
+
+.aide-succes-img img {
+  width: 59%;
+  max-height: 117px;
+}
+
+.aide-jetons-img img {
+  max-height: 117px;
 }
