@@ -1,11 +1,30 @@
 <div class="penombre-sheet">
 
+    <!-- ================= Hidden attributs ==================-->
+    <!-- Input hidden vide (juste pour déclarer l'attribut) -->
+    <input type="hidden" name="attr_rtype">
+
+
+    <select name="attr_rtype" style="display: none;">
+        <option value="&#123;&#123;harmonique=1&#125;&#125;">Toujours Harmonique</option>
+        <option value="&#123;&#123;merveilleux=1&#125;&#125;">Toujours Merveilleux</option>
+        <option
+            value="{{query=1}} ?{Type de jet?|Harmonique,&#123&#123harmonique=1|Merveilleux,&#123&#123merveilleux=1}"
+            selected>
+            Demander à chaque jet</option>
+    </select>
+
+
+    <!-- ================= Onglets =============== -->
+
     <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="eminence" />
     <div class="sheet_tabs">
         <button type="action" name="act_eminence" data-tab="eminence">Eminence Grise</button>
         <button type="action" name="act_adversaire" data-tab="adversaire">Adversaire</button>
         <button type="action" name="act_collegial" data-tab="collegial">Feuille Collégiale</button>
     </div>
+
+    <!-- ================= Feuille d'Eminence Grise ============== -->
 
     <section class="sheet_eminence">
         <div class="columns">
@@ -50,7 +69,11 @@
                                         <option value="12">D12</option>
                                     </select>
                                 </div>
-                                <button type="roll" value="" class="label-btn">Nuit</button>
+                                <button type="roll"
+                                    value="&{template:harmonique} [[floor([[1d@{nuit}cs@{nuit}cf1]]/4) ]] [[floor([[1d20cs20cf1]]/4) ]] {{title=@{character_name}}} {{carac=de Nuit}} @{rtype}}} {{jet_brut_harm=$[[0]]}} {{r_harmonique=$[[1]]}} {{jet_brut_merv=$[[2]]}} {{r_merveilleux=$[[3]]}} {{difficulte=[[?{Difficulté|1}]]}} {{max_harm=[[@{nuit}]]}} {{max_merv=[[20]]}} {{un=[[1]]}}"
+                                    name="roll_nuit" class="label-btn">Nuit</button>
+
+
                                 <span class="sub-label">Action scélérate</span>
 
                             </div>
@@ -65,7 +88,9 @@
                                         <option value="12">D12</option>
                                     </select>
                                 </div>
-                                <button type="roll" value="" class="label-btn">Âme</button>
+
+                                <button type="roll" class=" label-btn"
+                                    value="&{template:harmonique} [[floor([[1d@{ame}cs@{ame}cf1]]/4) ]] [[floor([[1d20cs20cf1]]/4) ]] {{title=@{character_name}}} {{carac=d&#39;Ame}} @{rtype}}} {{jet_brut_harm=$[[0]]}} {{r_harmonique=$[[1]]}} {{jet_brut_merv=$[[2]]}} {{r_merveilleux=$[[3]]}} {{difficulte=[[?{Difficulté|1}]]}} {{max_harm=[[@{ame}]]}} {{max_merv=[[20]]}} {{un=[[1]]}}">Âme</button>
                                 <span class="sub-label">Action sociale</span>
 
                             </div>
@@ -80,7 +105,9 @@
                                         <option value="12">D12</option>
                                     </select>
                                 </div>
-                                <button type="roll" value="" class="label-btn">Nature</button>
+                                <button type="roll"
+                                    value="&{template:harmonique} [[floor([[1d@{nature}cs@{nature}cf1]]/4) ]] [[floor([[1d20cs20cf1]]/4) ]] {{title=@{character_name}}} {{carac=de Nature}} @{rtype}}} {{jet_brut_harm=$[[0]]}} {{r_harmonique=$[[1]]}} {{jet_brut_merv=$[[2]]}} {{r_merveilleux=$[[3]]}} {{difficulte=[[?{Difficulté|1}]]}} {{max_harm=[[@{ame}]]}} {{max_merv=[[20]]}} {{un=[[1]]}}"
+                                    class="label-btn">Nature</button>
                                 <span class="sub-label">Action physique</span>
 
                             </div>
@@ -95,7 +122,9 @@
                                         <option value="12">D12</option>
                                     </select>
                                 </div>
-                                <button type="roll" value="" class="label-btn">Esprit</button>
+                                <button type="roll"
+                                    value="&{template:harmonique} [[floor([[1d@{esprit}cs@{esprit}cf1]]/4) ]] [[floor([[1d20cs20cf1]]/4) ]] {{title=@{character_name}}} {{carac=d&#39;Esprit}} @{rtype}}} {{jet_brut_harm=$[[0]]}} {{r_harmonique=$[[1]]}} {{jet_brut_merv=$[[2]]}} {{r_merveilleux=$[[3]]}} {{difficulte=[[?{Difficulté|1}]]}} {{max_harm=[[@{esprit}]]}} {{max_merv=[[20]]}} {{un=[[1]]}}"
+                                    class="label-btn">Esprit</button>
                                 <span class="sub-label">Action mentale</span>
                             </div>
 
@@ -109,7 +138,9 @@
                                         <option value="12">D12</option>
                                     </select>
                                 </div>
-                                <button type="roll" value="" class="label-btn">Étincelle</button>
+                                <button type="roll"
+                                    value="&{template:harmonique} [[floor([[1d@{etincelle}cs@{etincelle}cf1]]/4) ]] [[floor([[1d20cs20cf1]]/4) ]] {{title=@{character_name}}} {{carac=d&#39;Étincelle}} @{rtype}}} {{jet_brut_harm=$[[0]]}} {{r_harmonique=$[[1]]}} {{jet_brut_merv=$[[2]]}} {{r_merveilleux=$[[3]]}} {{difficulte=[[?{Difficulté|1}]]}} {{max_harm=[[@{etincelle}]]}} {{max_merv=[[20]]}} {{un=[[1]]}}"
+                                    class="label-btn">Étincelle</button>
                                 <span class="sub-label">Action perceptive</span>
                             </div>
                         </div>
@@ -247,8 +278,6 @@
                                         <option value="gamme">Gamme</option>
                                         <option value="ton">Ton</option>
                                     </select>
-                                    <button type="roll" name="roll_pouvoir" class="btn-roll" value="">
-                                    </button>
                                 </div>
                             </fieldset>
                         </div>
@@ -275,7 +304,9 @@
 
                             <fieldset class="repeating_atouts">
                                 <div class="atout-row">
-                                    <input type="text" name="attr_nom_atout" placeholder="Nom de l'atout">
+                                    <textarea name="attr_nom_atout" placeholder="Nom de l'atout"></textarea>
+                                    <!--<input type="text" name="attr_nom_atout" placeholder="Nom de l'atout"> -->
+
                                     <div class="atout-level-row">
                                         <input type="checkbox" class="case" name="attr_lvl1">
                                         <input type="checkbox" class="case" name="attr_lvl2">
@@ -284,8 +315,28 @@
                                         <input type="hidden" name="attr_atout_nd6" value="0">
                                     </div>
 
-                                    <button type="roll" name="roll_atout" class="btn-roll" value="/r @{atout_nd6}d6">
-                                    </button>
+                                    <div class="sheet-atout-container">
+                                        <button type="roll" class="sheet-atout-btn" name="roll_disabled"
+                                            value=""></button>
+                                        <div class="sheet-atout-menu">
+                                            <div class="sheet-atout-heading">Harmonique ? </div>
+                                            <div><button type="roll" class="atout-choice" name="roll_atout_nuit"
+                                                    value="&{template:harmonique} [[20]] [[1]] [[?{Difficulté|0}]] [[@{nuit}]] [[ [[floor([[1d@{nuit}]]/4)]] + [[@{atout_nd6}d6>4]] ]] [[ [[floor([[1d20]]/4)]] + [[@{atout_nd6}d6>4]] ]] {{title=@{character_name}}} {{carac=de Nuit}} @{rtype}}} {{max_merv=$[[0]]}} {{un=$[[1]]}} {{difficulte=$[[2]]}} {{max_harm=$[[3]]}} {{jet_brut_harm=$[[4]]}} {{jet_brut_merv=$[[6]]}} {{r_harmonique=$[[10]]}} {{r_merveilleux=$[[11]]}}"></button><label>Nuit</label>
+                                            </div>
+                                            <div><button type="roll" class="atout-choice" name="roll_atout_ame"
+                                                    value="&{template:harmonique} [[20]] [[1]] [[?{Difficulté|0}]] [[@{ame}]] [[ [[floor([[1d@{ame}]]/4)]] + [[@{atout_nd6}d6>4]] ]] [[ [[floor([[1d20]]/4)]] + [[@{atout_nd6}d6>4]] ]] {{title=@{character_name}}} {{carac=d&#39;Âme}} @{rtype}}} {{max_merv=$[[0]]}} {{un=$[[1]]}} {{difficulte=$[[2]]}} {{max_harm=$[[3]]}} {{jet_brut_harm=$[[4]]}} {{jet_brut_merv=$[[6]]}} {{r_harmonique=$[[10]]}} {{r_merveilleux=$[[11]]}}"></button><label>Âme</label>
+                                            </div>
+                                            <div><button type="roll" class="atout-choice" name="roll_atout_nature"
+                                                    value="&{template:harmonique} [[20]] [[1]] [[?{Difficulté|0}]] [[@{nature}]] [[ [[floor([[1d@{nature}]]/4)]] + [[@{atout_nd6}d6>4]] ]] [[ [[floor([[1d20]]/4)]] + [[@{atout_nd6}d6>4]] ]] {{title=@{character_name}}} {{carac=de Nature}} @{rtype}}} {{max_merv=$[[0]]}} {{un=$[[1]]}} {{difficulte=$[[2]]}} {{max_harm=$[[3]]}} {{jet_brut_harm=$[[4]]}} {{jet_brut_merv=$[[6]]}} {{r_harmonique=$[[10]]}} {{r_merveilleux=$[[11]]}}"></button><label>Nature</label>
+                                            </div>
+                                            <div><button type="roll" class="atout-choice" name="roll_atout_esprit"
+                                                    value="&{template:harmonique} [[20]] [[1]] [[?{Difficulté|0}]] [[@{esprit}]] [[ [[floor([[1d@{esprit}]]/4)]] + [[@{atout_nd6}d6>4]] ]] [[ [[floor([[1d20]]/4)]] + [[@{atout_nd6}d6>4]] ]] {{title=@{character_name}}} {{carac=d&#39;Esprit}} @{rtype}}} {{max_merv=$[[0]]}} {{un=$[[1]]}} {{difficulte=$[[2]]}} {{max_harm=$[[3]]}} {{jet_brut_harm=$[[4]]}} {{jet_brut_merv=$[[6]]}} {{r_harmonique=$[[10]]}} {{r_merveilleux=$[[11]]}}"></button><label>Esprit</label>
+                                            </div>
+                                            <div><button type="roll" class="atout-choice" name="roll_atout_etincelle"
+                                                    value="&{template:harmonique} [[20]] [[1]] [[?{Difficulté|0}]] [[@{etincelle}]] [[ [[floor([[1d@{etincelle}]]/4)]] + [[@{atout_nd6}d6>4]] ]] [[ [[floor([[1d20]]/4)]] + [[@{atout_nd6}d6>4]] ]] {{title=@{character_name}}} {{carac=d&#39;Étincelle}} @{rtype}}} {{max_merv=$[[0]]}} {{un=$[[1]]}} {{difficulte=$[[2]]}} {{max_harm=$[[3]]}} {{jet_brut_harm=$[[4]]}} {{jet_brut_merv=$[[6]]}} {{r_harmonique=$[[10]]}} {{r_merveilleux=$[[11]]}}"></button><label>Étincelle</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </fieldset>
                         </div>
@@ -328,8 +379,6 @@
                                             min="0" max="5">
                                     </div>
 
-
-
                                 </div>
                             </fieldset>
                         </div>
@@ -365,6 +414,8 @@
             </div>
         </div>
     </section>
+
+    <!-- ================= Feuille d'Adversaire ================== -->
 
     <section class="sheet_adversaire">
         <div class="adversaire-feuille">
@@ -436,6 +487,8 @@
 
     </section>
 
+    <!-- ================= Feuille Collégiale ================== -->
+
     <section class="sheet_collegial">
         <div class="collegiale-container">
             <!-- Jeton 1 (haut centre) -->
@@ -480,10 +533,72 @@
         </div>
     </section>
 
-
-
 </div>
+<!-- ================= Rolltemplate Harmonique ================== -->
+
+<rolltemplate class="sheet-rolltemplate-harmonique">
+    <div class="sheet-rolltemplate-harmonique-background sheet-rolltemplate-harmonique-center">
+        {{#title}}
+        <div class="sheet-rolltemplate-harmonique-header">{{title}}</div>
+        {{/title}}
+        <div class="sheet-rolltemplate-harmonique-subheader">
+            {{#harmonique}} Jet harmonique {{carac}} {{/harmonique}}
+            {{#merveilleux}} Jet harmonique {{carac}} <span
+                class="sheet-rolltemplate-harmonique-merveilleux">Merveilleux</span>{{/merveilleux}}
+        </div>
+        <div class="sheet-rolltemplate-harmonique-result">
+            {{#harmonique}}
+            <span class="sheet-rolltemplate-harmonique-succes">{{r_harmonique}} succès</span>
+            {{#rollTotal() jet_brut_harm max_harm}}
+            <div class="critique-succes">Envolée !</div>
+            {{/rollTotal() jet_brut_harm max_harm}}
+            {{#rollTotal() jet_brut_harm un}}
+            <div class="critique-echec">Fausse note</div>
+            {{/rollTotal() jet_brut_harm un}}
+            {{#rollGreater() r_harmonique difficulte}}
+            <div class="reussite">Réussite !</div>
+            {{/rollGreater() r_harmonique difficulte}}
+            {{#rollTotal() r_harmonique difficulte}}
+            <div class="reussite">Réussite !</div>
+            {{/rollTotal() r_harmonique difficulte}}
+            {{#rollLess() r_harmonique difficulte}}
+            <div class="echec">Presque !</div>
+            {{/rollLess() r_harmonique difficulte}}
+            {{/harmonique}}
+            {{#merveilleux}}
+            <span>{{r_merveilleux}} succès</span>
+            {{#rollTotal() jet_brut_merv max_merv}}
+            <div class="critique-succes">Merveille</div>
+            {{/rollTotal() jet_brut_merv max_merv}}
+            {{#rollTotal() jet_brut_merv un}}
+            <div class="critique-echec">Incident magique</div>
+            {{/rollTotal() jet_brut_merv un}}
+            {{#rollGreater() r_merveilleux difficulte}}
+            <div class="reussite">Réussite !</div>
+            {{/rollGreater() r_merveilleux difficulte}}
+            {{#rollTotal() r_merveilleux difficulte}}
+            <div class="reussite">Réussite !</div>
+            {{/rollTotal() r_merveilleux difficulte}}
+            {{#rollLess() r_merveilleux difficulte}}
+            <div class="echec">Presque !</div>
+            {{/rollLess() r_merveilleux difficulte}}
+            {{/merveilleux}}
+        </div>
+        <div class="sheet-rolltemplate-harmonique-info" style="display:none;">
+            {{#harmonique}}Jet brut : {{jet_brut_harm}}{{/harmonique}}
+            {{#merveilleux}}Jet brut : {{jet_brut_merv}}{{/merveilleux}}
+        </div>
+        <div style="display:none;">{{difficulte}}{{max_harm}}{{max_merv}}{{un}}</div>
+    </div>
+</rolltemplate>
+
+
+
+
+
+<!-- ================= Sheet Worker ================== -->
 <script type="text/worker">
+
     /* Onglets de la feuille de personnage */
     const buttonlist = ["eminence", "adversaire", "collegial"];
     buttonlist.forEach(button => {

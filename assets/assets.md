@@ -34,3 +34,17 @@ https://github.com/okadus/roll20-penombre/blob/main/assets/fonts/cattedrale-regu
 ## Colors
 
 #bfa285
+
+## Macros
+
+### harmonique
+
+&{template:harmonique} [[floor([[1d@{nuit}cs@{nuit}cf1]]/4) ]] [[floor([[1d20cs20cf1]]/4) ]] {{title=@{character_name}}} {{carac=Nuit}} @{rtype}}} {{jet_brut_harm=$[[0]]}} {{r_harmonique=$[[1]]}} {{jet_brut_merv=$[[2]]}} {{r_merveilleux=$[[3]]}} {{difficulte=[[?{Difficulté|1}]]}} {{max_harm=[[@{nuit}]]}} {{max_merv=[[20]]}} {{un=[[1]]}}
+
+### atout
+
+&{template:harmonique} [[20]] [[1]] [[?{Difficulté|0}]] [[?{Harmonique|Nuit,@{nuit}|Âme,@{ame}|Nature,@{nature}|Esprit,@{esprit}|Étincelle,@{etincelle}}]] [[[[floor([[1d?{Harmonique}]]/4)]] + [[@{atout_nd6}d6>4]] ]] [[[[floor([[1d20]]/4)]] + [[@{atout_nd6}d6>4]] ]] {{title=@{character_name}}} @{rtype}}} {{max_merv=$[[0]]}} {{un=$[[1]]}} {{difficulte=$[[2]]}} {{max_harm=$[[3]]}} {{jet_brut_harm=$[[4]]}} {{jet_brut_merv=$[[6]]}} {{r_harmonique=$[[10]]}} {{r_merveilleux=$[[11]]}}
+
+### atout 2
+
+&{template:harmonique} [[20]] [[1]] [[?{Difficulté|0}]] [[?{Harmonique|Nuit,@{nuit}|Âme,@{ame}|Nature,@{nature}|Esprit,@{esprit}|Étincelle,@{etincelle}}]] [[[[floor([[1d?{Harmonique}]]/4)]] + [[@{atout_nd6}d6>4]] ]] [[[[floor([[1d20]]/4)]] + [[@{atout_nd6}d6>4]] ]] {{title=@{character_name}}} @{rtype}}} {{carac=?{Quel Harmonique|Nuit|Âme|Nature|Esprit|Étincelle}}} {{max_merv=$[[0]]}} {{un=$[[1]]}} {{difficulte=$[[2]]}} {{max_harm=$[[3]]}} {{jet_brut_harm=$[[4]]}} {{jet_brut_merv=$[[6]]}} {{r_harmonique=$[[10]]}} {{r_merveilleux=$[[11]]}}

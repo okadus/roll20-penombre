@@ -42,8 +42,12 @@
   border: 2px solid var(--penombre-brown);
   border-radius: 6px;
   padding: 0 10px 0;
-  min-width: 833px;
+  width: 833px;
   overflow: hidden;
+}
+
+.d-none {
+  display: none;
 }
 
 /* ========================================
@@ -702,6 +706,28 @@ input[type="number"].potentiel-input {
   font-size: 1.5rem;
 }
 
+.atout-row textarea {
+  flex: 2;
+  height: 26px;
+  margin-top: 5px;
+  border: none;
+  border-bottom: 1px dotted var(--penombre-brown);
+  background: transparent;
+  padding: 0 8px;
+  font-family: var(--penombre-font-freely);
+  font-size: 1.5rem;
+  resize: none;
+  overflow: hidden;
+  line-height: 26px;
+  transition: height 0.7s ease, border 0.7s ease;
+
+  &:focus {
+    outline: none;
+    border: 1px dotted var(--penombre-brown);
+    height: 140px;
+  }
+}
+
 /* Conteneur niveaux */
 .atout-level {
   display: inline-flex;
@@ -718,8 +744,25 @@ input[type="number"].potentiel-input {
 
 /* Cases personnalisées */
 .atout-row input[type="checkbox"] {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
+}
+
+.atout-row .atout-level-row {
+  min-width: 60px;
+}
+
+.atout-row select[name="attr_atout_harmonique"] {
+  height: 32px;
+  width: 80px;
+  border: none;
+  border-bottom: 1px dotted var(--penombre-brown);
+  background: transparent;
+  padding: 0 8px;
+  margin: 0;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-family: var(--penombre-font-freely);
 }
 
 .case {
@@ -730,9 +773,76 @@ input[type="number"].potentiel-input {
   border: none;
   appearance: none;
   cursor: pointer;
+  background-color: var(--penombre-light);
 }
 .case:checked {
   background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/de_case_checked.webp");
+}
+
+/* Boutons harmoniques cachés  */
+.sheet-atout-container {
+  position: relative;
+  display: inline-block;
+}
+
+.sheet-atout-menu {
+  display: none;
+  position: absolute;
+  background: var(--penombre-white);
+  padding: 10px 0;
+  border: 1px solid var(--penombre-brown);
+  border-radius: 10px;
+  z-index: 100;
+  min-width: 90px;
+  right: 25px;
+  top: -10px;
+}
+
+.sheet-atout-heading {
+  font-weight: bolder;
+  color: var(--penombre-brown);
+  text-align: center;
+  padding: 2px 5px;
+  border-bottom: 1px solid var(--penombre-dark);
+}
+
+.sheet-atout-heading:hover {
+  background: transparent;
+}
+
+.sheet-atout-container:hover .sheet-atout-menu {
+  display: block;
+}
+
+.sheet-atout-btn:hover {
+  color: var(--penombre-brown);
+  border: 1px solid var(--penombre-brown);
+}
+
+.sheet-atout-menu > div:not(.sheet-atout-heading) {
+  display: flex;
+  align-items: center;
+  padding: 2px 5px;
+  border-bottom: 1px solid var(--penombre-dark);
+}
+
+.sheet-atout-menu > div:not(.sheet-atout-heading):hover {
+  background: var(--penombre-dark);
+}
+
+.sheet-atout-menu > div:last-child {
+  border-bottom: none;
+}
+
+.sheet-atout-choice {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  flex-shrink: 0;
+}
+
+.sheet-atout-menu label {
+  margin-bottom: 0 !important;
 }
 
 /* === Maîtrises Magiques === */
@@ -1048,7 +1158,8 @@ select.dissonance-select {
   width: 600px;
   height: 600px;
   margin: 0 auto;
-  background: url("https://i.imgur.com/ilPHlYb.jpeg") center center no-repeat;
+  background: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/collegial-bg.jpeg")
+    center center no-repeat;
   background-size: contain;
 }
 
@@ -1164,4 +1275,84 @@ select.dissonance-select {
 .jeton10 {
   top: 64%;
   left: 64%;
+}
+
+/*=======================================
+   Rolltemplate custom styles
+   ======================================*/
+
+.sheet-rolltemplate-harmonique .sheet-rolltemplate-harmonique-center {
+  text-align: center;
+}
+
+.sheet-rolltemplate-harmonique .sheet-rolltemplate-harmonique-background {
+  background: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/fond-coupe-petit.webp") -0%
+    top no-repeat;
+  background-color: #fef4e8;
+  min-height: 120px;
+  max-width: 200px;
+  margin: 0px;
+  padding: 1.6rem 10px;
+  background-size: 110%;
+  border: 2px solid #722f16;
+}
+
+.sheet-rolltemplate-harmonique .sheet-rolltemplate-harmonique-header {
+  font-family: "cattedrale", "pirata one", serif;
+  color: #722f16;
+  font-size: 3.5rem;
+  margin: 1rem 0 2rem;
+  text-align: center;
+}
+
+.sheet-rolltemplate-harmonique .sheet-rolltemplate-harmonique-subheader {
+  font-family: "cattedrale", "pirata one", serif;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #3c4762;
+}
+
+.sheet-rolltemplate-harmonique .sheet-rolltemplate-harmonique-result {
+  color: #110d0b;
+  text-align: center;
+  margin-top: 1.9rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.sheet-rolltemplate-harmonique .inlinerollresult {
+  background-color: transparent;
+  border: none !important;
+}
+
+.sheet-rolltemplate-harmonique .sheet-rolltemplate-harmonique-merveilleux {
+  display: block;
+  color: red;
+}
+
+.sheet-rolltemplate-harmonique .sheet-rolltemplate-harmonique-succes {
+  font-family: "P22Freely", "Fasthand", serif;
+  font-size: 2.7rem;
+}
+
+.sheet-rolltemplate-harmonique .sheet-rolltemplate-critique-succes {
+  color: #00ff00;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.sheet-rolltemplate-harmonique .sheet-rolltemplate-critique-echec {
+  color: #ff0000;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.sheet-rolltemplate-harmonique .sheet-rolltemplate-echec {
+  font-family: serif;
+  color: red;
+}
+
+.sheet-rolltemplate-harmonique .sheet-rolltemplate-reussite {
+  font-family: serif;
+  color: chartreuse;
 }
