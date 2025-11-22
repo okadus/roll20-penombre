@@ -50,6 +50,11 @@
   display: none;
 }
 
+.itemcontrol .repcontrol_del {
+  position: relative;
+  z-index: 100;
+}
+
 /* ========================================
           Onglets de la feuille
 ======================================== */
@@ -427,13 +432,13 @@ h3.conscience-titre span {
 
 /* États visuels */
 input[name^="attr_token"][value="0"] + .token-btn {
-  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/jeton_face_inactive.webp");
+  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/jeton_face_active.webp");
 }
 input[name^="attr_token"][value="1"] + .token-btn {
-  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/cercle.webp");
+  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/jeton_face_inactive.webp");
 }
 input[name^="attr_token"][value="2"] + .token-btn {
-  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/jeton_face_active.webp");
+  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/cercle.webp");
 }
 
 /* === Masquage au-delà du cmax === */
@@ -660,7 +665,7 @@ input[type="number"].potentiel-input {
   &:focus {
     outline: none;
     border: 1px dotted var(--penombre-brown);
-    height: 140px;
+    height: 100px;
   }
 }
 
@@ -724,7 +729,7 @@ input[type="number"].potentiel-input {
   &:focus {
     outline: none;
     border: 1px dotted var(--penombre-brown);
-    height: 140px;
+    height: 100px;
   }
 }
 
@@ -950,7 +955,7 @@ textarea.notes-textarea {
   border: 1px dotted var(--penombre-brown);
   background: transparent;
   padding: 8px;
-  font-size: 1rem !important;
+  font-size: 1.2rem !important;
   resize: vertical;
   transition: height 0.7s ease;
 
@@ -998,6 +1003,7 @@ textarea.notes-textarea {
   background: var(--penombre-white);
   width: 60%;
   margin: 0 auto 10px;
+  padding-bottom: 2rem;
 }
 
 .adversaire-feuille .titre-section {
@@ -1179,11 +1185,11 @@ select.dissonance-select {
   height: 78px;
   display: inline-block; /* Force la taille exacte */
   cursor: pointer;
-  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/jeton_face_inactive.webp");
+  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/jeton_face_active.webp");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  transition: transform 0.15s ease, filter 0.15s ease;
+  transition: transform 0.15s ease;
   /* Centrage : on décale de -50% pour centrer réellement */
   transform: translate(-50%, -50%);
   /* Empêche tout contenu texte de déborder */
@@ -1194,18 +1200,17 @@ select.dissonance-select {
 
 /* Hover effect */
 .jeton:hover {
-  transform: translate(-50%, -50%) scale(1.08);
-  filter: brightness(1.1);
+  transform: translate(-50%, -50%) scale(1.02);
 }
 
 /* Quand le checkbox est coché → change l'image */
 .jeton-input:checked + .jeton {
-  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/jeton_face_active.webp");
+  background-image: url("https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/jeton_face_inactive.webp");
   transform: translate(-50%, -50%);
 }
 
 .jeton-input:checked + .jeton:hover {
-  transform: translate(-50%, -50%) scale(1.09);
+  transform: translate(-50%, -50%) scale(1.02);
 }
 
 .collegiale-container label {
@@ -1294,7 +1299,7 @@ select.dissonance-select {
   margin: 0px;
   padding: 1.6rem 10px;
   background-size: 110%;
-  border: 2px solid #722f16;
+  border: 3px double #722f16;
 }
 
 .sheet-rolltemplate-harmonique .sheet-rolltemplate-harmonique-header {
@@ -1320,6 +1325,14 @@ select.dissonance-select {
   font-weight: 700;
 }
 
+.sheet-rolltemplate-harmonique img.sheet-rolltemplate-harmonique-critique-icon,
+.sheet-rolltemplate-harmonique
+  .sheet-rolltemplate-harmonique-critique-icon
+  img {
+  height: 2.7rem;
+  margin-right: 0.6rem;
+}
+
 .sheet-rolltemplate-harmonique .inlinerollresult {
   background-color: transparent;
   border: none !important;
@@ -1327,7 +1340,7 @@ select.dissonance-select {
 
 .sheet-rolltemplate-harmonique .sheet-rolltemplate-harmonique-merveilleux {
   display: block;
-  color: red;
+  color: #a70909;
 }
 
 .sheet-rolltemplate-harmonique .sheet-rolltemplate-harmonique-succes {
@@ -1335,24 +1348,12 @@ select.dissonance-select {
   font-size: 2.7rem;
 }
 
-.sheet-rolltemplate-harmonique .sheet-rolltemplate-critique-succes {
-  color: #00ff00;
-  font-weight: bold;
-  margin-top: 5px;
+.sheet-rolltemplate-harmonique .sheet-rolltemplate-harmonique-echec {
+  color: #bf2525;
+  margin: 10px 0 4px;
 }
 
-.sheet-rolltemplate-harmonique .sheet-rolltemplate-critique-echec {
-  color: #ff0000;
-  font-weight: bold;
-  margin-top: 5px;
-}
-
-.sheet-rolltemplate-harmonique .sheet-rolltemplate-echec {
-  font-family: serif;
-  color: red;
-}
-
-.sheet-rolltemplate-harmonique .sheet-rolltemplate-reussite {
-  font-family: serif;
-  color: chartreuse;
+.sheet-rolltemplate-harmonique .sheet-rolltemplate-harmonique-reussite {
+  color: #23bf26;
+  margin: 10px 0 4px;
 }

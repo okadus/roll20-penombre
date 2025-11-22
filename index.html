@@ -39,7 +39,7 @@
                         </h3>
 
                         <div class="identite-champs">
-                            <div class="identite-champ"><label>Nom</label><input type="text" name="attr_char_name">
+                            <div class="identite-champ"><label>Nom</label><input type="text" name="attr_character_name">
                             </div>
                             <div class="identite-champ"><label>Peuple</label><input type="text" name="attr_peuple">
                             </div>
@@ -70,7 +70,7 @@
                                     </select>
                                 </div>
                                 <button type="roll"
-                                    value="&{template:harmonique} [[floor([[1d@{nuit}cs@{nuit}cf1]]/4) ]] [[floor([[1d20cs20cf1]]/4) ]] {{title=@{character_name}}} {{carac=de Nuit}} @{rtype}}} {{jet_brut_harm=$[[0]]}} {{r_harmonique=$[[1]]}} {{jet_brut_merv=$[[2]]}} {{r_merveilleux=$[[3]]}} {{difficulte=[[?{Difficulté|1}]]}} {{max_harm=[[@{nuit}]]}} {{max_merv=[[20]]}} {{un=[[1]]}}"
+                                    value="&{template:harmonique} [[20]] [[1]] [[?{Difficulté|1}]] [[@{nuit}]] [[ floor([[1d@{nuit}]]/4) ]] [[ floor([[1d20]]/4) ]] {{title=@{character_name}}} {{carac=de Nuit}} @{rtype}}} {{max_merv=$[[0]]}} {{un=$[[1]]}} {{difficulte=$[[2]]}} {{max_harm=$[[3]]}} {{jet_brut_harm=$[[4]]}} {{jet_brut_merv=$[[5]]}} {{r_harmonique=$[[6]]}} {{r_merveilleux=$[[7]]}}"
                                     name="roll_nuit" class="label-btn">Nuit</button>
 
 
@@ -90,7 +90,7 @@
                                 </div>
 
                                 <button type="roll" class=" label-btn"
-                                    value="&{template:harmonique} [[floor([[1d@{ame}cs@{ame}cf1]]/4) ]] [[floor([[1d20cs20cf1]]/4) ]] {{title=@{character_name}}} {{carac=d&#39;Ame}} @{rtype}}} {{jet_brut_harm=$[[0]]}} {{r_harmonique=$[[1]]}} {{jet_brut_merv=$[[2]]}} {{r_merveilleux=$[[3]]}} {{difficulte=[[?{Difficulté|1}]]}} {{max_harm=[[@{ame}]]}} {{max_merv=[[20]]}} {{un=[[1]]}}">Âme</button>
+                                    value="&{template:harmonique} [[20]] [[1]] [[?{Difficulté|1}]] [[@{ame}]] [[ floor([[1d@{ame}]]/4) ]] [[ floor([[1d20]]/4) ]] {{title=@{character_name}}} {{carac=d&#39;Âme}} @{rtype}}} {{max_merv=$[[0]]}} {{un=$[[1]]}} {{difficulte=$[[2]]}} {{max_harm=$[[3]]}} {{jet_brut_harm=$[[4]]}} {{jet_brut_merv=$[[5]]}} {{r_harmonique=$[[6]]}} {{r_merveilleux=$[[7]]}}">Âme</button>
                                 <span class="sub-label">Action sociale</span>
 
                             </div>
@@ -106,7 +106,7 @@
                                     </select>
                                 </div>
                                 <button type="roll"
-                                    value="&{template:harmonique} [[floor([[1d@{nature}cs@{nature}cf1]]/4) ]] [[floor([[1d20cs20cf1]]/4) ]] {{title=@{character_name}}} {{carac=de Nature}} @{rtype}}} {{jet_brut_harm=$[[0]]}} {{r_harmonique=$[[1]]}} {{jet_brut_merv=$[[2]]}} {{r_merveilleux=$[[3]]}} {{difficulte=[[?{Difficulté|1}]]}} {{max_harm=[[@{ame}]]}} {{max_merv=[[20]]}} {{un=[[1]]}}"
+                                    value="&{template:harmonique} [[20]] [[1]] [[?{Difficulté|1}]] [[@{nature}]] [[ floor([[1d@{nature}]]/4) ]] [[ floor([[1d20]]/4) ]] {{title=@{character_name}}} {{carac=de Nature}} @{rtype}}} {{max_merv=$[[0]]}} {{un=$[[1]]}} {{difficulte=$[[2]]}} {{max_harm=$[[3]]}} {{jet_brut_harm=$[[4]]}} {{jet_brut_merv=$[[5]]}} {{r_harmonique=$[[6]]}} {{r_merveilleux=$[[7]]}}"
                                     class="label-btn">Nature</button>
                                 <span class="sub-label">Action physique</span>
 
@@ -123,7 +123,7 @@
                                     </select>
                                 </div>
                                 <button type="roll"
-                                    value="&{template:harmonique} [[floor([[1d@{esprit}cs@{esprit}cf1]]/4) ]] [[floor([[1d20cs20cf1]]/4) ]] {{title=@{character_name}}} {{carac=d&#39;Esprit}} @{rtype}}} {{jet_brut_harm=$[[0]]}} {{r_harmonique=$[[1]]}} {{jet_brut_merv=$[[2]]}} {{r_merveilleux=$[[3]]}} {{difficulte=[[?{Difficulté|1}]]}} {{max_harm=[[@{esprit}]]}} {{max_merv=[[20]]}} {{un=[[1]]}}"
+                                    value="&{template:harmonique} [[20]] [[1]] [[?{Difficulté|1}]] [[@{esprit}]] [[ floor([[1d@{esprit}]]/4) ]] [[ floor([[1d20]]/4) ]] {{title=@{character_name}}} {{carac=d&#39;Esprit}} @{rtype}}} {{max_merv=$[[0]]}} {{un=$[[1]]}} {{difficulte=$[[2]]}} {{max_harm=$[[3]]}} {{jet_brut_harm=$[[4]]}} {{jet_brut_merv=$[[5]]}} {{r_harmonique=$[[6]]}} {{r_merveilleux=$[[7]]}}"
                                     class="label-btn">Esprit</button>
                                 <span class="sub-label">Action mentale</span>
                             </div>
@@ -139,7 +139,7 @@
                                     </select>
                                 </div>
                                 <button type="roll"
-                                    value="&{template:harmonique} [[floor([[1d@{etincelle}cs@{etincelle}cf1]]/4) ]] [[floor([[1d20cs20cf1]]/4) ]] {{title=@{character_name}}} {{carac=d&#39;Étincelle}} @{rtype}}} {{jet_brut_harm=$[[0]]}} {{r_harmonique=$[[1]]}} {{jet_brut_merv=$[[2]]}} {{r_merveilleux=$[[3]]}} {{difficulte=[[?{Difficulté|1}]]}} {{max_harm=[[@{etincelle}]]}} {{max_merv=[[20]]}} {{un=[[1]]}}"
+                                    value="&{template:harmonique} [[20]] [[1]] [[?{Difficulté|1}]] [[@{etincelle}]] [[ floor([[1d@{etincelle}]]/4) ]] [[ floor([[1d20]]/4) ]] {{title=@{character_name}}} {{carac=d&#39;Étincelle}} @{rtype}}} {{max_merv=$[[0]]}} {{un=$[[1]]}} {{difficulte=$[[2]]}} {{max_harm=$[[3]]}} {{jet_brut_harm=$[[4]]}} {{jet_brut_merv=$[[5]]}} {{r_harmonique=$[[6]]}} {{r_merveilleux=$[[7]]}}"
                                     class="label-btn">Étincelle</button>
                                 <span class="sub-label">Action perceptive</span>
                             </div>
@@ -245,7 +245,8 @@
 
                 <!-- Bandeau supérieur -->
                 <header class="header">
-                    <img src="https://i.imgur.com/RqiNP2C.png" class="logo" alt="Logo Pénombre">
+                    <img src="https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/logo_penombre.webp"
+                        class="logo" alt="Logo Pénombre">
                 </header>
 
                 <!-- ================= Pouvoirs ================== -->
@@ -272,6 +273,7 @@
                                     <input type="text" name="attr_nom_pouvoir" placeholder="Nom du pouvoir">
                                     <textarea name="attr_pouvoir" placeholder="Pouvoir"></textarea>
                                     <select name="attr_pouvoir_type">
+                                        <option value="aucun">Sans type</option>
                                         <option value="naissance">Naissance</option>
                                         <option value="peuple">Peuple</option>
                                         <option value="cle">Clé</option>
@@ -423,7 +425,8 @@
             <div class="adversaire-content">
 
                 <div class="adversaire-entete">
-                    <input type="text" name="attr_char_name" class="adversaire-nom" placeholder="Nom de l’adversaire">
+                    <input type="text" name="attr_character_name" class="adversaire-nom"
+                        placeholder="Nom de l’adversaire">
                     <input type="text" name="attr_adversaire_concept" class="adversaire-concept"
                         placeholder="Concept de l'adversaire">
                 </div>
@@ -467,10 +470,9 @@
 
                 <div class="adversaire-section-rep">
                     <h3>Actions adverses</h3>
-                    <fieldset class="repeating_actions_adverses">
-                        <input type="text" name="attr_action_adverse_nom" placeholder="Nom de l’action adverse">
-                        <textarea name="attr_action_adverse_desc"
-                            placeholder="Décris ici l’action adverse..."></textarea>
+                    <fieldset class="repeating_actions">
+                        <input type="text" name="attr_action_nom" placeholder="Nom de l’action adverse">
+                        <textarea name="attr_action_desc" placeholder="Décris ici l’action adverse..."></textarea>
                     </fieldset>
                 </div>
 
@@ -549,39 +551,56 @@
         <div class="sheet-rolltemplate-harmonique-result">
             {{#harmonique}}
             <span class="sheet-rolltemplate-harmonique-succes">{{r_harmonique}} succès</span>
-            {{#rollTotal() jet_brut_harm max_harm}}
-            <div class="critique-succes">Envolée !</div>
-            {{/rollTotal() jet_brut_harm max_harm}}
-            {{#rollTotal() jet_brut_harm un}}
-            <div class="critique-echec">Fausse note</div>
-            {{/rollTotal() jet_brut_harm un}}
             {{#rollGreater() r_harmonique difficulte}}
-            <div class="reussite">Réussite !</div>
+            <div class="sheet-rolltemplate-harmonique-reussite">Réussite !</div>
             {{/rollGreater() r_harmonique difficulte}}
             {{#rollTotal() r_harmonique difficulte}}
-            <div class="reussite">Réussite !</div>
+            <div class="sheet-rolltemplate-harmonique-reussite">Réussite !</div>
             {{/rollTotal() r_harmonique difficulte}}
             {{#rollLess() r_harmonique difficulte}}
-            <div class="echec">Presque !</div>
+            <div class="sheet-rolltemplate-harmonique-echec">Presque ! </div>
             {{/rollLess() r_harmonique difficulte}}
+
+
+            {{#rollTotal() jet_brut_harm max_harm}}
+            <div class="sheet-rolltemplate-harmonique-critique"><span><img
+                        class="sheet-rolltemplate-harmonique-critique-icon" alt="icône d'envolée"
+                        src="https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/envolee.webp"></span>Envolée
+                !</div>
+            {{/rollTotal() jet_brut_harm max_harm}}
+            {{#rollTotal() jet_brut_harm un}}
+            <div class="sheet-rolltemplate-harmonique-critique"><span
+                    class="sheet-rolltemplate-harmonique-critique-icon"><img alt="icône de fausse note"
+                        src="https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/fausse_note.webp"></span>Fausse
+                note</div>
+            {{/rollTotal() jet_brut_harm un}}
+
             {{/harmonique}}
+
             {{#merveilleux}}
-            <span>{{r_merveilleux}} succès</span>
-            {{#rollTotal() jet_brut_merv max_merv}}
-            <div class="critique-succes">Merveille</div>
-            {{/rollTotal() jet_brut_merv max_merv}}
-            {{#rollTotal() jet_brut_merv un}}
-            <div class="critique-echec">Incident magique</div>
-            {{/rollTotal() jet_brut_merv un}}
+            <span class="sheet-rolltemplate-harmonique-succes">{{r_merveilleux}} succès</span>
             {{#rollGreater() r_merveilleux difficulte}}
-            <div class="reussite">Réussite !</div>
+            <div class="sheet-rolltemplate-harmonique-reussite">Réussite !</div>
             {{/rollGreater() r_merveilleux difficulte}}
             {{#rollTotal() r_merveilleux difficulte}}
-            <div class="reussite">Réussite !</div>
+            <div class="sheet-rolltemplate-harmonique-reussite">Réussite !</div>
             {{/rollTotal() r_merveilleux difficulte}}
             {{#rollLess() r_merveilleux difficulte}}
-            <div class="echec">Presque !</div>
+            <div class="sheet-rolltemplate-harmonique-echec">Presque !</div>
             {{/rollLess() r_merveilleux difficulte}}
+
+            {{#rollTotal() jet_brut_merv max_merv}}
+            <div><span><img class="sheet-rolltemplate-harmonique-critique-icon" alt="icône de merveille"
+                        src="https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/merveille.webp"></span>Merveille
+            </div>
+            {{/rollTotal() jet_brut_merv max_merv}}
+            {{#rollTotal() jet_brut_merv un}}
+            <div class="critique-echec"><span><img class="sheet-rolltemplate-harmonique-critique-icon"
+                        alt="icône d'incident magique"
+                        src="https://raw.githubusercontent.com/okadus/roll20-penombre/refs/heads/main/assets/img/incident_magique.webp"></span>Incident
+                magique</div>
+            {{/rollTotal() jet_brut_merv un}}
+
             {{/merveilleux}}
         </div>
         <div class="sheet-rolltemplate-harmonique-info" style="display:none;">
